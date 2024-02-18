@@ -1,4 +1,6 @@
+import { DeviceProvider } from '../../device-context/component';
 import { useGetIngredientsQuery } from '../../redux/services/ingredientApi';
+import { AppHeader } from '../app-header/component';
 import Loader from '../loader/component';
 import { App } from './component';
 
@@ -12,5 +14,12 @@ export const AppContainer = () => {
     return 'no data';
   }
 
-  return <App ingredients={data} />;
+  return (
+    <div>
+      <DeviceProvider>
+        <AppHeader />
+      </DeviceProvider>
+      <App ingredients={data} />
+    </div>
+  );
 };
