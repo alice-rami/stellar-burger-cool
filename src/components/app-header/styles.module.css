@@ -1,0 +1,48 @@
+.container {
+  display: grid;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+  grid-template-rows: 96px;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 14px 14px;
+}
+
+.nav {
+  grid-row: 1 / 2;
+  grid-column: 2 / -1;
+}
+
+.logo {
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+  z-index: 2;
+}
+
+.menu {
+  grid-row: 1 / 2;
+  grid-column: -2 / -1;
+  justify-self: end;
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+  .nav {
+    grid-column: 1 / -1;
+  }
+
+  .logo {
+    grid-column: 3 / 4;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .container {
+    padding: 12px 8px;
+  }
+}

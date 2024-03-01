@@ -1,0 +1,17 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 96px 1fr;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+.header {
+  grid-column: 1 / -1;
+}
+
+.content {
+  margin: 0 auto;
+  grid-column: 2 / -2;
+  grid-row: 2 / -1;
+}
