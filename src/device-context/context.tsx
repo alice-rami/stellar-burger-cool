@@ -1,7 +1,7 @@
-import React from 'react';
+import { createContext } from 'react';
 import { ScreenSizes } from './types';
 
-export const ScreenSizeContext = React.createContext<ScreenSizes>({
+export const ScreenSizeContext = createContext<ScreenSizes>({
   isDesktop: false,
   isMobile: false,
 });

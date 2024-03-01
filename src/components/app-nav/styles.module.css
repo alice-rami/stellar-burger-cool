@@ -1,0 +1,18 @@
+.nav {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+  align-content: center;
+  align-items: center;
+  column-gap: 8px;
+}
+
+@media screen and (min-width: 1200px) {
+  .nav {
+    justify-content: start;
+  }
+
+  .nav div:nth-child(3) {
+    margin-left: auto;
+  }
+}
