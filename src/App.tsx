@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Layout } from './components/layout/component';
+import { Layout } from './components/ui/layout/component';
 import { Provider } from 'react-redux';
 import { store } from './redux';
 import { ConstructorPage } from './pages/constructor-page/component';

@@ -1,7 +1,7 @@
 import { IngredientGroup } from '../ingredient-group/ingredient-group';
 import { groupNamesConfig } from './config';
 import { IngredientsByGroups } from './container';
-import { Tabs } from '../tabs/component';
+import { Tabs } from '../ui/tabs/component';
 import styles from './styles.module.css';
 import classNames from 'classnames';
 

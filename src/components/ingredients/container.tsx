@@ -1,6 +1,6 @@
 import { useGetIngredientsQuery } from '../../redux/services/ingredientApi';
 import { Ingredient } from '../../utils/types';
-import Loader from '../loader/component';
+import Loader from '../ui/loader/component';
 import { Ingredients } from './component';
 
 export type IngredientGroups = 'buns' | 'sauces' | 'mains';

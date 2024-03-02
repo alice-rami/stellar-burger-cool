@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import styles from './styles.module.css';
-import { AppHeader } from '../app-header/component';
+import { AppHeader } from '../../app-header/component';
 
 interface LayoutProps {
   children?: ReactNode;
