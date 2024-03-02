@@ -10,6 +10,7 @@ export const Layout = ({ children }: LayoutProps) => {
     <div className={styles.container}>
       <AppHeader className={styles.header} />
       <main className={styles.content}>{children}</main>
+      <div id='ingredient-modal' />
     </div>
   );
 };

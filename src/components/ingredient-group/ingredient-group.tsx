@@ -1,6 +1,6 @@
 import { textM } from '../../utils/constants-kit-styles';
 import { Ingredient as IngredientEntity } from '../../utils/types';
-import { Ingredient } from '../ingredient/ingredient';
+import { Ingredient } from '../ingredient/component';
 import styles from './styles.module.css';
 
 interface IngredientGroupProps {

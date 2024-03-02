@@ -6,6 +6,8 @@ import { ConstructorPage } from './pages/constructor-page/component';
 import { FeedPage } from './pages/feed-page/component';
 import { ProfilePage } from './pages/profile-page/component';
 import { DeviceProvider } from './device-context/component';
+import { IngredientModalProvider } from './modal-context/component';
+import { IngredientDetailsContainer } from './components/ingredient-details/container';
 
 export const App = () => {
   return (
@@ -13,11 +15,18 @@ export const App = () => {
       <BrowserRouter>
         <DeviceProvider>
           <Layout>
-            <Routes>
-              <Route index element={<ConstructorPage />} />
-              <Route path='feed' element={<FeedPage />} />
-              <Route path='profile' element={<ProfilePage />} />
-            </Routes>
+            <IngredientModalProvider>
+              <Routes>
+                <Route index element={<ConstructorPage />} />
+                <Route path='feed' element={<FeedPage />} />
+                <Route path='profile' element={<ProfilePage />} />
+                <Route
+                  path='ingredients/:id'
+                  element={<IngredientDetailsContainer />}
+                />
+                <Route path='*' element={<div>Not found</div>} />
+              </Routes>
+            </IngredientModalProvider>
           </Layout>
         </DeviceProvider>
       </BrowserRouter>
