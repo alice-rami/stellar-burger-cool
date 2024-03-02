@@ -6,6 +6,7 @@
   grid-template-rows: 96px;
   grid-template-columns: repeat(5, 1fr);
   padding: 14px 14px;
+  background-color: #1c1c21;
 }
 
 .nav {

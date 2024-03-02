@@ -1,0 +1,10 @@
+.container {
+  height: calc(100vh - 200px);
+  display: flex;
+  flex-direction: column;
+}
+
+.groups {
+  overflow-y: scroll;
+  scrollbar-width: thin;
+}

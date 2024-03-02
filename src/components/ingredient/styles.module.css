@@ -1,0 +1,24 @@
+.container {
+  max-width: 272px;
+  text-align: center;
+  position: relative;
+}
+
+.priceContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 8px;
+}
+
+.image {
+  cursor: pointer;
+}
+
+.counter {
+  position: absolute;
+}
+
+.title {
+  min-height: 60px;
+}

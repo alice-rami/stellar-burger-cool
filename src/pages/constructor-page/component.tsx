@@ -1,3 +1,11 @@
+import { IngredientsContainer } from '../../components/ingredients/container';
+import { LayoutTwoColumns } from '../../components/layout-two-columns/component';
+
 export const ConstructorPage = () => {
-  return <div>Ingredients & Constructor</div>;
+  return (
+    <LayoutTwoColumns title='Cоберите бургер'>
+      <IngredientsContainer />
+      <div>Constructor</div>
+    </LayoutTwoColumns>
+  );
 };
