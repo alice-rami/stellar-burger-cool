@@ -1,6 +1,6 @@
 import { SyncLoader } from 'react-spinners';
 import styles from './styles.module.css';
-import { loaderCSSProps } from '../../utils/loaderCSSProps.ts';
+import { loaderCSSProps } from '../../../utils/loaderCSSProps.ts';
 
 export default function Loader() {
   return (

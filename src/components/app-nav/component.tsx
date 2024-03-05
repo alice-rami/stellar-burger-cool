@@ -12,8 +12,9 @@ export const AppNav = ({ className }: AppNavProps) => {
   const { isDesktop } = useScreenSize();
   return (
     <nav className={classNames(className, styles.nav)}>
-      {appNavConfig.map(({ icon, text, path }) => (
+      {appNavConfig.map(({ icon, text, path }, index) => (
         <AppNavItem
+          key={index}
           icon={icon}
           title={text}
           path={path}
