@@ -22,6 +22,9 @@ export const selectIdsArray = createSelector(
   }
 );
 
+export const selectIngredientCount = (store: RootState, id: string) =>
+  selectIdsArray(store).filter((item) => item === id).length;
+
 // calcOrderTotal
 export const selectOrderTotal = createSelector(
   [selectBurgerModule],

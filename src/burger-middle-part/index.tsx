@@ -59,9 +59,8 @@ export const BurgerMiddlePart = ({ midPart = [] }: BurgerMiddlePartProps) => {
       ) : (
         midPart.map((item, index) => {
           return (
-            <li>
+            <li key={item.uid}>
               <BurgerMidIngredient
-                key={item.uid}
                 index={index}
                 uid={item.uid}
                 moveCard={moveCard}

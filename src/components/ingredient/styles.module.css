@@ -22,3 +22,7 @@
 .title {
   min-height: 60px;
 }
+
+.dragging {
+    opacity: 0.5;
+}
