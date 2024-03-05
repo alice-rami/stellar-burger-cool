@@ -8,28 +8,32 @@ import { ProfilePage } from './pages/profile-page/component';
 import { DeviceProvider } from './device-context/component';
 import { IngredientModalProvider } from './modal-context/component';
 import { IngredientDetailsContainer } from './components/ingredient-details/container';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 
 export const App = () => {
   return (
     <Provider store={store}>
-      <BrowserRouter>
-        <DeviceProvider>
-          <Layout>
-            <IngredientModalProvider>
-              <Routes>
-                <Route index element={<ConstructorPage />} />
-                <Route path='feed' element={<FeedPage />} />
-                <Route path='profile' element={<ProfilePage />} />
-                <Route
-                  path='ingredients/:id'
-                  element={<IngredientDetailsContainer />}
-                />
-                <Route path='*' element={<div>Not found</div>} />
-              </Routes>
-            </IngredientModalProvider>
-          </Layout>
-        </DeviceProvider>
-      </BrowserRouter>
+      <DndProvider backend={HTML5Backend}>
+        <BrowserRouter>
+          <DeviceProvider>
+            <Layout>
+              <IngredientModalProvider>
+                <Routes>
+                  <Route index element={<ConstructorPage />} />
+                  <Route path='feed' element={<FeedPage />} />
+                  <Route path='profile' element={<ProfilePage />} />
+                  <Route
+                    path='ingredients/:id'
+                    element={<IngredientDetailsContainer />}
+                  />
+                  <Route path='*' element={<div>Not found</div>} />
+                </Routes>
+              </IngredientModalProvider>
+            </Layout>
+          </DeviceProvider>
+        </BrowserRouter>
+      </DndProvider>
     </Provider>
   );
 };
