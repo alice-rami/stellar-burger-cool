@@ -1,0 +1,34 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    position: relative;
+    width: 100%;
+    
+}
+.burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    height: calc(100% - 156px);
+}
+
+@media screen and (max-width: 1200px) {
+    .container {
+        height: calc(100% - 56px)
+    }
+    .burger {
+        gap: 1px;
+        height: calc(100% - 98px);
+    }
+}
+
+@media screen and (max-width: 1068px) {
+    .burger {
+        gap: 1px;
+    }
+}

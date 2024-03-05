@@ -14,6 +14,10 @@ import {
 import classNames from 'classnames';
 import { useIngredientModal } from '../../modal-context/hook';
 import { useNavigate } from 'react-router-dom';
+import { useDrag } from 'react-dnd';
+import { useAppDispatch, useAppSelector } from '../../hooks/rtkHooks';
+import { burgerActions } from '../../redux/ui/burger';
+import { selectIngredientCount } from '../../redux/ui/burger/selectors';
 
 interface IngredientProps {
   ingredient: IngredientEntity;
@@ -23,16 +27,46 @@ export const Ingredient = ({ ingredient }: IngredientProps) => {
   const { isMobile, isDesktop } = useScreenSize();
   const { setIngredientModalData } = useIngredientModal();
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
+  const { image, image_mobile, name, type, price, _id } = ingredient;
+  const count = useAppSelector((state) => selectIngredientCount(state, _id));
+
+  const [{ isDragging }, dragRef] = useDrag({
+    type: type,
+    item: { image_mobile, price, name, type, _id },
+    collect: (monitor) => ({
+      isDragging: monitor.isDragging(),
+    }),
+  });
 
   if (!ingredient) {
     return null;
   }
 
-  const { image, image_mobile, name, price, _id } = ingredient;
+  const addIngredient = (evt: React.SyntheticEvent) => {
+    evt.preventDefault();
+    if (type === 'bun') {
+      dispatch(burgerActions.addBun(ingredient));
+    } else {
+      dispatch(burgerActions.addMidPartIngredient(ingredient));
+    }
+  };
 
   return (
-    <article className={styles.container}>
-      <Counter count={1} size={isMobile ? 'small' : 'default'} />
+    <article
+      className={classNames(styles.container, {
+        [styles.dragging]: isDragging,
+      })}
+      ref={dragRef}
+    >
+      {count !== 0 && (
+        <Counter
+          count={count}
+          size={isMobile ? 'small' : 'default'}
+          extraClass={styles.counter}
+        />
+      )}
       <img
         src={isMobile ? image_mobile : image}
         alt={name}
@@ -54,7 +88,12 @@ export const Ingredient = ({ ingredient }: IngredientProps) => {
         {name}
       </h3>
       {!isDesktop && (
-        <Button htmlType='submit' type='secondary' size='medium'>
+        <Button
+          htmlType='submit'
+          type='secondary'
+          size='medium'
+          onClick={addIngredient}
+        >
           Добавить
         </Button>
       )}

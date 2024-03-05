@@ -1,0 +1,43 @@
+.dragging {
+    opacity: 0.8;
+}
+
+.target {
+    outline: 1px dashed gray;
+    background-color: rgba(128, 26, 179, 0.5);
+}
+
+.elementContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.listItem {
+    display: flex;
+    flex-direction: row;
+    column-gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+}
+
+@media screen and (max-width: 1068px) {
+    .container {
+        gap: 1px;
+    }
+    .element {
+        border-radius: 0;
+        padding: 16px 0 16px 0;
+        column-gap: 8px;
+        background-color: transparent;
+    }
+}

@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  row-gap: 16px;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.draggedOver {
+  opacity: 0.5;
+  border: 1px solid white;
+}
+
+.placeholder {
+  width: 100%;
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 2;
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    gap: 1px;
+    max-width: calc(100% - 16px);
+    margin: 0 auto;
+  }
+}
