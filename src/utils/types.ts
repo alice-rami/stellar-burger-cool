@@ -1,7 +1,9 @@
+import { IngredientsTypes } from '../components/ingredients/container';
+
 export type Ingredient = {
   _id: string;
   name: string;
-  type: string;
+  type: IngredientsTypes;
   proteins: number;
   fat: number;
   carbohydrates: number;

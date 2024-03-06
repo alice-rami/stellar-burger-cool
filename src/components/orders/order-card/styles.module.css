@@ -1,0 +1,53 @@
+.container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+  width: calc(100% - 15px);
+  background-color: #1c1c21;
+  border-radius: 40px;
+  padding: 24px;
+  margin-right: 8px;
+  margin-left: 2px;
+  margin-top: 2px;
+  transition: outline 0.8s ease-in-out opacity 0.8s ease-in-out;
+}
+
+.container:hover {
+  cursor: pointer;
+  opacity: 0.8;
+  outline: 2px solid #801ab3;
+}
+
+.priceContainer {
+  display: flex;
+  column-gap: 8px;
+  align-items: center;
+}
+
+.extraValue {
+  z-index: 2;
+  display: block;
+  width: 64px;
+  margin: auto 0;
+  text-align: center;
+  opacity: 1;
+}
+
+.numAndDate {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 24px;
+}
+
+.ingrAndPrice {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 24px;
+}
+
+.name {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

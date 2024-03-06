@@ -1,4 +1,4 @@
-import { BurgerIngredients } from '../../burger-ingredients';
+import { BurgerIngredients } from '../../components/burger/burger-ingredients/component';
 import { IngredientsContainer } from '../../components/ingredients/container';
 import { LayoutTwoColumns } from '../../components/ui/layout-two-columns/component';
 

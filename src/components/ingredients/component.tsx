@@ -1,6 +1,6 @@
 import { IngredientGroup } from '../ingredient-group/ingredient-group';
 import { groupNamesConfig } from './config';
-import { IngredientsByGroups } from './container';
+import { IngredientsByType } from './container';
 import { Tabs } from '../ui/tabs/component';
 import styles from './styles.module.css';
 import classNames from 'classnames';
@@ -10,14 +10,14 @@ import { IngredientDetails } from '../ingredient-details/component';
 import { useNavigate } from 'react-router-dom';
 
 interface IngredientsProps {
-  ingredientsByGroups: IngredientsByGroups;
+  ingredientsByType: IngredientsByType;
 }
 
-export const Ingredients = ({ ingredientsByGroups }: IngredientsProps) => {
+export const Ingredients = ({ ingredientsByType }: IngredientsProps) => {
   const { ingredientModalData, setIngredientModalData } = useIngredientModal();
   const navigate = useNavigate();
 
-  if (!ingredientsByGroups) {
+  if (!ingredientsByType) {
     return null;
   }
 
@@ -25,11 +25,11 @@ export const Ingredients = ({ ingredientsByGroups }: IngredientsProps) => {
     <div className={classNames(styles.container)}>
       <Tabs className='mb-10' />
       <div className={classNames(styles.groups, 'custom-scroll')}>
-        {groupNamesConfig.map(({ group, title, id }) => (
+        {groupNamesConfig.map(({ type, title, id }) => (
           <IngredientGroup
             key={id}
             title={title}
-            ingredients={ingredientsByGroups[group]}
+            ingredients={ingredientsByType[type]}
           />
         ))}
       </div>

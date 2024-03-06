@@ -4,7 +4,7 @@ import {
 } from '@ya.praktikum/react-developer-burger-ui-components';
 import styles from './styles.module.css';
 import classNames from 'classnames';
-import { digitsDefault, digitsM } from '../utils/constants-kit-styles';
+import { digitsDefault, digitsM } from '../../../utils/constants-kit-styles';
 
 interface OrderFooterProps {
   isMobile: boolean;
