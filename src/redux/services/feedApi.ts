@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { WS_ALL_ORDERS_URL, WS_BASE_URL } from '../../utils/constants-urls';
-import { Order } from '../../utils/types';
+import { Order } from '../../components/orders/types';
 
 export interface AllOrdersMessage {
   success?: boolean;
@@ -37,12 +37,9 @@ export const ordersApi = createApi({
 
           ws.addEventListener('message', listener);
         } catch {
-          // no-op in case `cacheEntryRemoved` resolves before `cacheDataLoaded`,
-          // in which case `cacheDataLoaded` will throw
+          //
         }
-        // cacheEntryRemoved will resolve when the cache subscription is no longer active
         await cacheEntryRemoved;
-        // perform cleanup steps once the `cacheEntryRemoved` promise resolves
         ws.close();
       },
     }),
