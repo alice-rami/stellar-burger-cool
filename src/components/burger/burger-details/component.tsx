@@ -1,6 +1,6 @@
 // import ErrorBoundary from '../../error-boundary/error-boundary';
 
-import { BurgerIngredients } from '../burger-ingredients';
+import { BurgerIngredients } from '../burger-ingredients/component';
 import { textL } from '../utils/constants-kit-styles';
 import styles from './styles.module.css';
 
@@ -15,4 +15,4 @@ export const IndgredientDetails = () => {
       {/* </ErrorBoundary> */}
     </div>
   );
-}
+};

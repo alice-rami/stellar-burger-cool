@@ -1,7 +1,7 @@
 import styles from './styles.module.css';
 import { useDrop } from 'react-dnd';
 import { useCallback } from 'react';
-import { BurgerMidIngredient } from '../burger-mid-ingredient';
+import { BurgerMidIngredient } from '../burger-mid-ingredient/component';
 import { useScreenSize } from '../device-context/hook';
 import { IngredientWithUId, burgerActions } from '../redux/ui/burger';
 import { useAppDispatch } from '../hooks/rtkHooks';

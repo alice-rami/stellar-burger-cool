@@ -1,15 +1,15 @@
 import classNames from 'classnames';
-import { BurgerBun } from '../burger-bun';
-import { BurgerMiddlePart } from '../burger-middle-part';
-import { useScreenSize } from '../device-context/hook';
-import { useAppSelector } from '../hooks/rtkHooks';
-import OrderFooter from '../order-footer';
+import { BurgerBun } from '../burger-bun/component';
+import { BurgerMiddlePart } from '../burger-middle-part/component';
+import { useScreenSize } from '../../../device-context/hook';
+import { useAppSelector } from '../../../hooks/rtkHooks';
+import OrderFooter from '../../orders/order-footer';
 import {
   selectBurgerModule,
   selectIdsArray,
   selectIsReadyForSubmit,
   selectOrderTotal,
-} from '../redux/ui/burger/selectors';
+} from '../../../redux/ui/burger/selectors';
 import styles from './styles.module.css';
 
 export const BurgerIngredients = () => {
