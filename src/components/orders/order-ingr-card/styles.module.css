@@ -1,0 +1,23 @@
+.ingredient {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 16px;
+  align-items: center;
+  margin-right: 24px;
+}
+
+.imageAndName {
+  display: flex;
+  column-gap: 16px;
+  align-items: center;
+}
+
+.countAndPrice {
+  display: flex;
+  column-gap: 8px;
+  align-items: center;
+}
+
+.ingredientPrice {
+  white-space: nowrap;
+}

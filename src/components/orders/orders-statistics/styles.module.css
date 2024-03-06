@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 39px;
+  height: calc(100vh - 200px);
+}
+
+.statusContainer {
+  display: flex;
+  column-gap: 36px;
+  width: 100%;
+  box-sizing: border-box;
+  max-height: 200px;
+}
+
+.doneContainer {
+  columns: 4 auto;
+  row-gap: 8px;
+  column-gap: 16px;
+}
+
+.pendingContainer {
+  columns: 3 auto;
+  row-gap: 8px;
+  column-gap: 16px;
+}

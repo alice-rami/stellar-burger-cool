@@ -1,0 +1,20 @@
+.ingrImageContainer {
+  display: flex;
+  width: 67px;
+  height: 67px;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  border-radius: 50%;
+  background: linear-gradient(63.18deg, #801ab3 0%, #4c4cff 100%);
+}
+
+.ingrImage {
+  display: block;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-position: center;
+  object-fit: cover;
+  background-color: black;
+}
