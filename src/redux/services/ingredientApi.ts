@@ -3,7 +3,7 @@ import { BASE_URL } from '../../utils/constants-urls';
 import { Ingredient } from '../../utils/types';
 
 export const ingredientApi = createApi({
-  reducerPath: 'api',
+  reducerPath: 'ingredientsApi',
   baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
   endpoints: (builder) => ({
     getIngredients: builder.query<Ingredient[], void>({
