@@ -2,12 +2,12 @@ import styles from './styles.module.css';
 import { useDrop } from 'react-dnd';
 import { useCallback } from 'react';
 import { BurgerMidIngredient } from '../burger-mid-ingredient/component';
-import { useScreenSize } from '../device-context/hook';
-import { IngredientWithUId, burgerActions } from '../redux/ui/burger';
-import { useAppDispatch } from '../hooks/rtkHooks';
-import { Ingredient } from '../utils/types';
+import { useScreenSize } from '../../../device-context/hook';
+import { IngredientWithUId, burgerActions } from '../../../redux/ui/burger';
+import { useAppDispatch } from '../../../hooks/rtkHooks';
+import { Ingredient } from '../../../utils/types';
 import classNames from 'classnames';
-import { textM } from '../utils/constants-kit-styles';
+import { textM } from '../../../utils/constants-kit-styles';
 
 interface BurgerMiddlePartProps {
   midPart: IngredientWithUId[];

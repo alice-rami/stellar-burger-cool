@@ -4,11 +4,11 @@ import {
 } from '@ya.praktikum/react-developer-burger-ui-components';
 import styles from './styles.module.css';
 import { useDrag, useDrop } from 'react-dnd';
-import { Ingredient } from '../utils/types';
-import { useAppDispatch } from '../hooks/rtkHooks';
-import { burgerActions } from '../redux/ui/burger';
+import { Ingredient } from '../../../utils/types';
+import { useAppDispatch } from '../../../hooks/rtkHooks';
+import { burgerActions } from '../../../redux/ui/burger';
 import classNames from 'classnames';
-import { textS } from '../utils/constants-kit-styles';
+import { textS } from '../../../utils/constants-kit-styles';
 
 interface BurgerMidIngredientProps {
   index: number;

@@ -1,14 +1,14 @@
 import { useDrop } from 'react-dnd';
-import { useScreenSize } from '../device-context/hook';
-import { useAppDispatch } from '../hooks/rtkHooks';
-import { Ingredient } from '../utils/types';
+import { useScreenSize } from '../../../device-context/hook';
+import { useAppDispatch } from '../../../hooks/rtkHooks';
+import { Ingredient } from '../../../utils/types';
 import styles from './styles.module.css';
-import { burgerActions } from '../redux/ui/burger';
+import { burgerActions } from '../../../redux/ui/burger';
 import { ConstructorElement } from '@ya.praktikum/react-developer-burger-ui-components';
 import { nameTypeConfig } from './config';
-import bun_image from '../images/bun-02.png';
+import bun_image from '../../../images/bun-02.png';
 import classNames from 'classnames';
-import { textS } from '../utils/constants-kit-styles';
+import { textS } from '../../../utils/constants-kit-styles';
 
 interface BurgerBunProps {
   bun: Ingredient | null;
@@ -30,8 +30,7 @@ export const BurgerBun = ({ bun, type }: BurgerBunProps) => {
       <ConstructorElement
         type={type}
         isLocked={true}
-        extraClass={classNames('ml-10', styles.burgerBun,
-          isMobile && textS)}
+        extraClass={classNames('ml-10', styles.burgerBun, isMobile && textS)}
         text={
           bun === null
             ? 'Добавьте булку'
