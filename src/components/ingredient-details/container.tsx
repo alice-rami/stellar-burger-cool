@@ -10,7 +10,7 @@ export const IngredientDetailsContainer = () => {
     selectFromResult: (result) => {
       return {
         ...result,
-        data: result?.data?.find(({ _id }) => _id === id),
+        data: id ? result?.data?.entities[id] : null,
       };
     },
   });

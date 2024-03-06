@@ -4,32 +4,38 @@ import Loader from '../ui/loader/component';
 import { Ingredients } from './component';
 
 export type IngredientGroups = 'buns' | 'sauces' | 'mains';
-export type IngredientsByGroups = Record<IngredientGroups, Ingredient[]>;
+export type IngredientsTypes = 'bun' | 'sauce' | 'main';
+export type IngredientsByType = Record<IngredientsTypes, Ingredient[]>;
 
 export const IngredientsContainer = () => {
-  const { data: ingredientsByGroups, isLoading } = useGetIngredientsQuery(
+  const { data: ingredientsByType, isLoading } = useGetIngredientsQuery(
     undefined,
     {
       selectFromResult: (result) => {
+        const entities = result?.data?.entities;
+        const ids = result?.data?.ids;
+        const byType: IngredientsByType = {
+          bun: [],
+          sauce: [],
+          main: [],
+        };
+        if (entities && ids) {
+          ids.forEach((id) => {
+            const type = entities[id]?.type;
+            if (type) {
+              byType[type].push(entities[id]);
+            }
+          });
+        }
         return {
           ...result,
-          data: result?.data?.reduce(
-            (acc: IngredientsByGroups, item) => {
-              acc[`${item.type}s` as IngredientGroups].push(item);
-              return acc;
-            },
-            {
-              buns: [],
-              sauces: [],
-              mains: [],
-            }
-          ),
+          data: byType,
         };
       },
     }
   );
 
-  if (!ingredientsByGroups) {
+  if (!ingredientsByType) {
     return null;
   }
 
@@ -37,5 +43,5 @@ export const IngredientsContainer = () => {
     return <Loader />;
   }
 
-  return <Ingredients ingredientsByGroups={ingredientsByGroups} />;
+  return <Ingredients ingredientsByType={ingredientsByType} />;
 };
