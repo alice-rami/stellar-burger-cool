@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.linkContainer {
+  display: flex;
+  column-gap: 20px;
+}
+
+.link {
+  text-decoration: none;
+}
