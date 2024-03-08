@@ -1,9 +1,10 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { loginThunk } from '../user/thunks/login-thunk';
+import { submitOrderThunk } from '../order/thunks/submit-order-thunk';
 
 type ModalContent =
   | 'ingredient'
-  | 'constructor'
+  | 'burger'
   | 'order'
   | 'mobile-menu'
   | 'loader'
@@ -31,8 +32,8 @@ export const modalSlice = createSlice({
       state.modalContent = 'ingredient';
       state.isModalOpen = true;
     },
-    showConstructor(state) {
-      state.modalContent = 'constructor';
+    showBurger(state) {
+      state.modalContent = 'burger';
       state.isModalOpen = true;
     },
     showOrder(state) {
@@ -69,17 +70,17 @@ export const modalSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      // .addCase(submitOrderThunk.fulfilled, (state) => {
-      //   state.modalContent = 'order';
-      //   state.isModalOpen = true;
-      // })
-      // .addCase(submitOrderThunk.pending, (state) => {
-      //   state.modalContent = 'loader';
-      //   state.isModalOpen = true;
-      // })
-      // .addCase(submitOrderThunk.rejected, (state) => {
-      //   state.message = 'Не удалось создать заказ. Попробуйте еще раз';
-      // })
+      .addCase(submitOrderThunk.fulfilled, (state) => {
+        state.modalContent = 'order';
+        state.isModalOpen = true;
+      })
+      .addCase(submitOrderThunk.pending, (state) => {
+        state.modalContent = 'loader';
+        state.isModalOpen = true;
+      })
+      .addCase(submitOrderThunk.rejected, (state) => {
+        state.message = 'Не удалось создать заказ. Попробуйте еще раз';
+      })
       // .addCase(fetchIngredientsThunk.rejected, (state) => {
       //   state.message =
       //     'Не удалось получить ингредиенты с сервера. Попробуйте перезагрузить страницу';

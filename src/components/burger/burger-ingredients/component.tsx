@@ -3,7 +3,7 @@ import { BurgerBun } from '../burger-bun/component';
 import { BurgerMiddlePart } from '../burger-middle-part/component';
 import { useScreenSize } from '../../../device-context/hook';
 import { useAppSelector } from '../../../hooks/rtkHooks';
-import OrderFooter from '../../orders/order-footer';
+import OrderFooter from '../../orders/order-footer/component';
 import {
   selectBurgerModule,
   selectIdsArray,

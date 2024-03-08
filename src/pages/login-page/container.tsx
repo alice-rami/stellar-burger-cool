@@ -46,7 +46,7 @@ export const LoginPageContainer = () => {
           const isFromModal: null | boolean =
             location.state && location.state.modal;
           if (isFromModal) {
-            dispatch(modalActions.showConstructor());
+            dispatch(modalActions.showBurger());
           }
         })
         .catch((error) => {

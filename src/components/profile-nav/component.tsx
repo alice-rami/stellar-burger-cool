@@ -44,7 +44,7 @@ export default function ProfileNav({ onClick }: ProfileNavProps) {
   ];
 
   return (
-    <nav className={`${styles.container}`}>
+    <nav className={styles.container}>
       {profileNavConfig.map(({ path, title, onClick }, index) => (
         <NavLink key={index} to={path} onClick={onClick}>
           {title}

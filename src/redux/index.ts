@@ -4,6 +4,8 @@ import { burgerSlice } from './ui/burger/index';
 import { ordersApi } from './services/feedApi';
 import { userSlice } from './ui/user/index';
 import { modalSlice } from './ui/modal/index';
+import { orderSlice } from './ui/order';
+import { currentIngredientSlice } from './ui/ingredient';
 
 const rootReducer = combineReducers({
   [ingredientApi.reducerPath]: ingredientApi.reducer,
@@ -11,6 +13,8 @@ const rootReducer = combineReducers({
   burger: burgerSlice.reducer,
   user: userSlice.reducer,
   modal: modalSlice.reducer,
+  order: orderSlice.reducer,
+  currentIngredient: currentIngredientSlice.reducer,
 });
 
 export const store = configureStore({

@@ -12,12 +12,14 @@ import {
   textS,
 } from '../../utils/constants-kit-styles';
 import classNames from 'classnames';
-import { useIngredientModal } from '../../modal-context/hook';
+// import { useIngredientModal } from '../../modal-context/hook';
 import { useNavigate } from 'react-router-dom';
 import { useDrag } from 'react-dnd';
 import { useAppDispatch, useAppSelector } from '../../hooks/rtkHooks';
 import { burgerActions } from '../../redux/ui/burger';
 import { selectIngredientCount } from '../../redux/ui/burger/selectors';
+import { modalActions } from '../../redux/ui/modal';
+// import { currentIngredientActions } from '../../redux/ui/ingredient';
 
 interface IngredientProps {
   ingredient: IngredientEntity;
@@ -25,7 +27,7 @@ interface IngredientProps {
 
 export const Ingredient = ({ ingredient }: IngredientProps) => {
   const { isMobile, isDesktop } = useScreenSize();
-  const { setIngredientModalData } = useIngredientModal();
+  // const { setIngredientModalData } = useIngredientModal();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
@@ -72,12 +74,11 @@ export const Ingredient = ({ ingredient }: IngredientProps) => {
         alt={name}
         className={styles.image}
         onClick={() => {
-          setIngredientModalData &&
-            setIngredientModalData({
-              isOpen: true,
-              ingredient: ingredient,
-            });
-          navigate(`/ingredients/${_id}`);
+          // dispatch(currentIngredientActions.setCurrentIngredient(ingredient));
+          dispatch(modalActions.showIngredient());
+          navigate(`/ingredients/${_id}`, {
+            state: { ingredient: ingredient },
+          });
         }}
       />
       <span className={`${styles.priceContainer} pt-1 pb-1`}>

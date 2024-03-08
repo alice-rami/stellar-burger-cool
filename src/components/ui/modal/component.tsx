@@ -1,38 +1,49 @@
-import { ReactNode, useEffect } from 'react';
+import { ReactNode, useCallback, useEffect, useRef } from 'react';
 import { CloseIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 import styles from './styles.module.css';
 import { createPortal } from 'react-dom';
 
-interface IngredientModalProps {
+interface ModalProps {
   onClose: () => void;
   children: ReactNode;
 }
 
-export const IngredientModal = ({
-  children,
-  onClose,
-}: IngredientModalProps) => {
+export const Modal = ({ children, onClose }: ModalProps) => {
+  const modalRef = useRef(null);
+
+  const onClickOnOverlay = useCallback(
+    (evt) => {
+      if (evt.target !== modalRef.current) {
+        evt.stopPropagation();
+        onClose();
+      }
+    },
+    [onClose]
+  );
+
   useEffect(() => {
     const onEsc = (evt: KeyboardEvent) => {
       if (evt.key === 'Escape') {
+        evt.stopPropagation();
         onClose();
       }
     };
     document.addEventListener('keydown', onEsc);
+
     return () => {
       document.removeEventListener('keydown', onEsc);
     };
   }, [onClose]);
 
   return createPortal(
-    <div className={styles.overlay}>
-      <div className={styles.modal}>
+    <div className={styles.overlay} onClick={(evt) => onClickOnOverlay(evt)}>
+      <div className={styles.modal} ref={modalRef}>
         <button className={styles.button}>
           <CloseIcon onClick={onClose} type='primary' />
         </button>
         {children}
       </div>
     </div>,
-    document.getElementById('ingredient-modal')!
+    document.getElementById('modal')!
   );
 };

@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useScreenSize } from '../../device-context/hook';
 import { useAppDispatch } from '../../hooks/rtkHooks';
 import useFormInputValidation, {
@@ -21,6 +21,8 @@ export const ResetPasswordPageContainer = () => {
     useFormInputValidation(initialState);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const { state } = useLocation();
+  const from: string | null = state && state.from;
 
   const onSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
@@ -59,6 +61,15 @@ export const ResetPasswordPageContainer = () => {
     isMobile
   );
 
-  return <ResetPasswordPage passwordConfig={passwordConfig} codeConfig={codeConfig}
-    isValid={isValid} onSubmit={onSubmit} message={message} />;
+  return from === 'forgot-password' ? (
+    <ResetPasswordPage
+      passwordConfig={passwordConfig}
+      codeConfig={codeConfig}
+      isValid={isValid}
+      onSubmit={onSubmit}
+      message={message}
+    />
+  ) : (
+    <Navigate to={'/'} />
+  );
 };
