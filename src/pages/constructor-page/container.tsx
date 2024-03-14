@@ -1,6 +1,6 @@
 import { OrderConfirmation } from '../../components/orders/order-confirmation/component';
-import Error from '../../components/ui/error/error';
-import Loader from '../../components/ui/loader/component';
+import { Error } from '../../components/ui/error/error';
+import { Loader } from '../../components/ui/loader/component';
 import { Modal } from '../../components/ui/modal/component';
 import { useAppDispatch, useAppSelector } from '../../hooks/rtkHooks';
 import { selectOrderTotal } from '../../redux/ui/burger/selectors';

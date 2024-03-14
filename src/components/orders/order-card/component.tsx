@@ -24,7 +24,7 @@ interface OrderCardProps {
   showOrderDetails: () => void;
 }
 
-const OrderCard = ({
+export const OrderCard = ({
   order,
   firstIngredients,
   extra,
@@ -64,5 +64,3 @@ const OrderCard = ({
     </div>
   );
 };
-
-export default OrderCard;

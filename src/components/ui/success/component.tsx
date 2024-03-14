@@ -7,7 +7,7 @@ interface SuccessProps {
   message: string | null;
 }
 
-export default function Success({ message }: SuccessProps) {
+export const Success = ({ message }: SuccessProps) => {
   return (
     <div className={classNames(styles.container)}>
       <div className={classNames(styles.error, 'ml-10 mr-10')}>

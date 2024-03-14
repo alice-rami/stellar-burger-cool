@@ -1,5 +1,5 @@
 import { useGetOrdersQuery } from '../../../redux/services/feedApi';
-import Loader from '../../ui/loader/component';
+import { Loader } from '../../ui/loader/component';
 import { OrderStatus } from '../types';
 import { OrdersStatistics } from './component';
 

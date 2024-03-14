@@ -2,7 +2,7 @@ import { SyncLoader } from 'react-spinners';
 import styles from './styles.module.css';
 import { loaderCSSProps } from '../../../utils/loaderCSSProps.ts';
 
-export default function Loader() {
+export const Loader = () => {
   return (
     <div className={styles.container}>
       <SyncLoader
@@ -14,4 +14,4 @@ export default function Loader() {
       />
     </div>
   );
-}
+};

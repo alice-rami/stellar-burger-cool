@@ -5,8 +5,8 @@ import {
   PasswordInput,
 } from '@ya.praktikum/react-developer-burger-ui-components';
 import styles from './styles.module.css';
-import Error from '../../components/ui/error/error';
-import Success from '../../components/ui/success/component';
+import { Error } from '../../components/ui/error/error';
+import { Success } from '../../components/ui/success/component';
 import {
   InputConfig,
   resetButtonConfig,
@@ -25,7 +25,7 @@ interface ProfilePageProps {
   requestStatus: 'success' | 'error' | null;
 }
 
-export default function ProfilePage({
+export const ProfilePage = ({
   emailConfig,
   passwordConfig,
   nameConfig,
@@ -35,7 +35,7 @@ export default function ProfilePage({
   isValid,
   message,
   requestStatus,
-}: ProfilePageProps) {
+}: ProfilePageProps) => {
   return (
     <form className={styles.inputContainer} onSubmit={onSubmit} noValidate>
       {Boolean(message) && (
@@ -59,4 +59,4 @@ export default function ProfilePage({
       )}
     </form>
   );
-}
+};

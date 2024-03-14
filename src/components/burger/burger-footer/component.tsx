@@ -6,7 +6,7 @@ import styles from './styles.module.css';
 import classNames from 'classnames';
 import { digitsDefault, digitsM } from '../../../utils/constants-kit-styles';
 
-interface OrderFooterProps {
+interface BurgerFooterProps {
   isMobile: boolean;
   isDesktop: boolean;
   orderTotal: number;
@@ -14,13 +14,13 @@ interface OrderFooterProps {
   handleSubmit: (evt: React.SyntheticEvent) => void;
 }
 
-export const OrderFooter = ({
+export const BurgerFooter = ({
   isMobile,
   isDesktop,
   orderTotal,
   isDisabled,
   handleSubmit,
-}: OrderFooterProps) => {
+}: BurgerFooterProps) => {
   return (
     <section
       className={classNames(
@@ -46,5 +46,3 @@ export const OrderFooter = ({
     </section>
   );
 };
-
-export default OrderFooter;

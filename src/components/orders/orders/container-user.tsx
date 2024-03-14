@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import { useGetUserOrdersQuery } from '../../../redux/services/feedApi';
-import Loader from '../../ui/loader/component';
+import { Loader } from '../../ui/loader/component';
 import { Orders } from './component';
 
 export const UserOrdersContainer = () => {
@@ -20,7 +20,5 @@ export const UserOrdersContainer = () => {
     return null;
   }
 
-  return (
-      <Orders orders={orders} from={pathname} />
-  );
+  return <Orders orders={orders} from={pathname} />;
 };

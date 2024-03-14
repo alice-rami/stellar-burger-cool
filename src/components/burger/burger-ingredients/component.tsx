@@ -4,7 +4,7 @@ import { BurgerMiddlePart } from '../burger-middle-part/component';
 import { useAppSelector } from '../../../hooks/rtkHooks';
 import { selectBurgerModule } from '../../../redux/ui/burger/selectors';
 import styles from './styles.module.css';
-import { OrderFooterContainer } from '../burger-footer/container';
+import { BurgerFooterContainer } from '../burger-footer/container';
 
 export const BurgerIngredients = () => {
   const { bun, midPart } = useAppSelector(selectBurgerModule);
@@ -16,7 +16,7 @@ export const BurgerIngredients = () => {
         <BurgerMiddlePart midPart={midPart} />
         <BurgerBun bun={bun} type='bottom' />
       </div>
-      <OrderFooterContainer />
+      <BurgerFooterContainer />
     </div>
   );
 };
