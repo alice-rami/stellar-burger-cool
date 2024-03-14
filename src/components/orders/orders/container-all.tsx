@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import { useGetOrdersQuery } from '../../../redux/services/feedApi';
-import Loader from '../../ui/loader/component';
+import {Loader} from '../../ui/loader/component';
 import { Orders } from './component';
 
 export const AllOrdersContainer = () => {

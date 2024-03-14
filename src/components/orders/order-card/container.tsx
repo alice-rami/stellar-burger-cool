@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import OrderCard from './component';
+import { OrderCard } from './component';
 import { Order } from '../types';
 import { useOrderIngredientDetails } from '../../../hooks/useOrderIngredientDetails';
 

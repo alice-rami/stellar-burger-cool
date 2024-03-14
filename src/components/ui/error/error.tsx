@@ -7,7 +7,7 @@ interface ErrorProps {
   message: string | null;
 }
 
-export default function Error({ message }: ErrorProps) {
+export const Error = ({ message }: ErrorProps) => {
   return (
     <div className={styles.container}>
       <div className={classNames(styles.error, 'ml-10 mr-10')}>

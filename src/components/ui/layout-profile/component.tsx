@@ -1,9 +1,9 @@
 import { Outlet } from 'react-router-dom';
 import styles from './styles.module.css';
 import { useScreenSize } from '../../../device-context/hook';
-import ProfileNav from '../../profile-nav/component';
 import classNames from 'classnames';
 import { inactive, textDefault } from '../../../utils/constants-kit-styles';
+import { ProfileNav } from '../../profile-nav/component';
 
 export const LayoutProfile = () => {
   const { isMobile } = useScreenSize();

@@ -7,7 +7,7 @@ import useFormInputValidation, {
 } from '../../hooks/useFormInputValidation';
 import { updateUserDataThunk } from '../../redux/ui/user/thunks/update-user-data-thunk';
 import { getInputsConfig } from '../../utils/inputs-config';
-import ProfilePage from './component';
+import { ProfilePage } from './component';
 
 type RequiredInputsData = Omit<InputsData, 'newCode'>;
 

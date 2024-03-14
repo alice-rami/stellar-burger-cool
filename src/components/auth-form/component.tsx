@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import styles from './styles.module.css';
 import { error, textDefault } from '../../utils/constants-kit-styles';
-import Error from '../ui/error/error';
+import { Error } from '../ui/error/error';
 import { Button } from '@ya.praktikum/react-developer-burger-ui-components';
 import { submitButtonConfig } from '../../utils/inputs-config';
 import { FormEvent, ReactNode } from 'react';

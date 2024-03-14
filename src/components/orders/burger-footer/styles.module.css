@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
+
+.priceContainer {
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (max-width: 1200px) {
+    .container {
+        background-color: #1C1C21;
+    }
+    
+}
+
+@media screen and (max-width: 640px) {
+    .container {
+        justify-content: center;
+    }
+    
+}

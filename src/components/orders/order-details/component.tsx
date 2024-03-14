@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { orderStatusConfig } from '../config';
-import OrderIngredientCard from '../order-ingr-card/component';
+import { OrderIngredientCard } from '../order-ingr-card/component';
 import { Order, OrderIngredientDetails } from '../types';
 import styles from './styles.module.css';
 import {

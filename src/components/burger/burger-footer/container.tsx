@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../hooks/rtkHooks';
 import { selectIsAuthorized } from '../../../redux/ui/user/selectors';
-import OrderFooter from './component';
+import { BurgerFooter } from './component';
 import { selectModalModule } from '../../../redux/ui/modal/selectors';
 import { modalActions } from '../../../redux/ui/modal';
 import { submitOrderThunk } from '../../../redux/ui/order/thunks/submit-order-thunk';
@@ -18,7 +18,7 @@ type NavigateConfig = (
   options: { state: { from: string; modal?: boolean } }
 ) => void;
 
-export const OrderFooterContainer = () => {
+export const BurgerFooterContainer = () => {
   const dispatch = useAppDispatch();
   const isAuthorized = useAppSelector(selectIsAuthorized);
   const navigate: NavigateConfig = useNavigate();
@@ -53,7 +53,7 @@ export const OrderFooterContainer = () => {
     }
   };
   return (
-    <OrderFooter
+    <BurgerFooter
       handleSubmit={handleSubmit}
       orderTotal={orderTotal}
       isDesktop={isDesktop}

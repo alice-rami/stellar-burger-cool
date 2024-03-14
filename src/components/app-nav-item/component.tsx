@@ -6,9 +6,9 @@ import { NavLink } from 'react-router-dom';
 
 export interface AppNavItemProps {
   path: string;
-  icon: ReactNode;
   title: string;
-  isDesktop: boolean;
+  icon?: ReactNode;
+  isDesktop?: boolean;
   onClick?: () => void;
   className?: string;
 }
@@ -19,6 +19,7 @@ export const AppNavItem = ({
   path,
   isDesktop,
   className,
+  onClick,
 }: AppNavItemProps) => {
   return (
     <div className={className}>
@@ -31,6 +32,7 @@ export const AppNavItem = ({
             [textS]: !isDesktop,
           })
         }
+        onClick={onClick}
       >
         {icon}
         {title}

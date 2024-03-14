@@ -14,7 +14,7 @@ export const AppNav = ({ className }: AppNavProps) => {
     <nav className={classNames(className, styles.nav)}>
       {appNavConfig.map(({ icon, text, path }, index) => (
         <AppNavItem
-          key={index}
+          key={`${index}-default`}
           icon={icon}
           title={text}
           path={path}

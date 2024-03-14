@@ -12,9 +12,9 @@ interface OrderIngredientCardProps {
   ingredient: OrderIngredientDetails;
 }
 
-export default function OrderIngredientCard({
+export const OrderIngredientCard = ({
   ingredient,
-}: OrderIngredientCardProps) {
+}: OrderIngredientCardProps) => {
   if (!ingredient.ingredientId) {
     return null;
   }
@@ -37,4 +37,4 @@ export default function OrderIngredientCard({
       </div>
     </div>
   );
-}
+};
