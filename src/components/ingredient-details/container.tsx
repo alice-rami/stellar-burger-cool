@@ -1,11 +1,16 @@
-import { useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { IngredientDetails } from './component';
 import { useGetIngredientsQuery } from '../../redux/services/ingredientApi';
-import { useIngredientModal } from '../../modal-context/hook';
-import { ConstructorPage } from '../../pages/constructor-page/component';
+import { Modal } from '../ui/modal/component';
+import { ConstructorPageContainer } from '../../pages/constructor-page/container';
 
 export const IngredientDetailsContainer = () => {
   const { id } = useParams();
+  const location = useLocation();
+  const isFromIngredients =
+    location.state && location.state.from === 'ingredients';
+
+  const navigate = useNavigate();
   const { data: ingredient } = useGetIngredientsQuery(undefined, {
     selectFromResult: (result) => {
       return {
@@ -14,16 +19,22 @@ export const IngredientDetailsContainer = () => {
       };
     },
   });
-  const {
-    ingredientModalData: { isOpen },
-  } = useIngredientModal();
 
   if (!ingredient) {
     return null;
   }
 
-  return isOpen ? (
-    <ConstructorPage />
+  return isFromIngredients ? (
+    <>
+      <ConstructorPageContainer />
+      <Modal
+        onClose={() => {
+          navigate('/'), { state: null };
+        }}
+      >
+        <IngredientDetails ingredient={ingredient} />
+      </Modal>
+    </>
   ) : (
     <IngredientDetails ingredient={ingredient} />
   );

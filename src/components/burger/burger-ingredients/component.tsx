@@ -1,23 +1,13 @@
 import classNames from 'classnames';
 import { BurgerBun } from '../burger-bun/component';
 import { BurgerMiddlePart } from '../burger-middle-part/component';
-import { useScreenSize } from '../../../device-context/hook';
 import { useAppSelector } from '../../../hooks/rtkHooks';
-import OrderFooter from '../../orders/order-footer';
-import {
-  selectBurgerModule,
-  selectIdsArray,
-  selectIsReadyForSubmit,
-  selectOrderTotal,
-} from '../../../redux/ui/burger/selectors';
+import { selectBurgerModule } from '../../../redux/ui/burger/selectors';
 import styles from './styles.module.css';
+import { OrderFooterContainer } from '../burger-footer/container';
 
 export const BurgerIngredients = () => {
-  const { isMobile, isDesktop } = useScreenSize();
   const { bun, midPart } = useAppSelector(selectBurgerModule);
-  const orderTotal = useAppSelector(selectOrderTotal);
-  const isDisabled = useAppSelector(selectIsReadyForSubmit);
-  const idsArray = useAppSelector(selectIdsArray);
 
   return (
     <div className={styles.container}>
@@ -26,13 +16,7 @@ export const BurgerIngredients = () => {
         <BurgerMiddlePart midPart={midPart} />
         <BurgerBun bun={bun} type='bottom' />
       </div>
-      <OrderFooter
-        isMobile={isMobile}
-        isDesktop={isDesktop}
-        orderTotal={orderTotal}
-        isDisabled={isDisabled}
-        idsArray={idsArray}
-      />
+      <OrderFooterContainer />
     </div>
   );
 };

@@ -4,11 +4,12 @@ import * as classNames from 'classnames';
 import styles from './styles.module.css';
 import { NavLink } from 'react-router-dom';
 
-interface AppNavItemProps {
+export interface AppNavItemProps {
   path: string;
   icon: ReactNode;
   title: string;
   isDesktop: boolean;
+  onClick?: () => void;
   className?: string;
 }
 

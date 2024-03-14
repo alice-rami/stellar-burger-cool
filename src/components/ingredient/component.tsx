@@ -12,7 +12,6 @@ import {
   textS,
 } from '../../utils/constants-kit-styles';
 import classNames from 'classnames';
-import { useIngredientModal } from '../../modal-context/hook';
 import { useNavigate } from 'react-router-dom';
 import { useDrag } from 'react-dnd';
 import { useAppDispatch, useAppSelector } from '../../hooks/rtkHooks';
@@ -25,7 +24,6 @@ interface IngredientProps {
 
 export const Ingredient = ({ ingredient }: IngredientProps) => {
   const { isMobile, isDesktop } = useScreenSize();
-  const { setIngredientModalData } = useIngredientModal();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
@@ -72,12 +70,9 @@ export const Ingredient = ({ ingredient }: IngredientProps) => {
         alt={name}
         className={styles.image}
         onClick={() => {
-          setIngredientModalData &&
-            setIngredientModalData({
-              isOpen: true,
-              ingredient: ingredient,
-            });
-          navigate(`/ingredients/${_id}`);
+          navigate(`/ingredients/${_id}`, {
+            state: { from: 'ingredients' },
+          });
         }}
       />
       <span className={`${styles.priceContainer} pt-1 pb-1`}>

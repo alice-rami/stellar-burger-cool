@@ -1,6 +1,7 @@
 .container {
   max-width: 272px;
   text-align: center;
+  justify-content: center;
   position: relative;
 }
 
@@ -24,5 +25,5 @@
 }
 
 .dragging {
-    opacity: 0.5;
+  opacity: 0.5;
 }

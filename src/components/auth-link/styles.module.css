@@ -1,0 +1,10 @@
+.linkContainer {
+  display: flex;
+  column-gap: 8px;
+  align-items: center;
+}
+
+.link {
+  text-decoration: none;
+  color: #4c4cff;
+}

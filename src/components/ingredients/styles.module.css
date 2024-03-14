@@ -5,6 +5,12 @@
 }
 
 .groups {
-  overflow-y: scroll;
+  overflow-y: auto;
   scrollbar-width: thin;
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    height: calc(100vh - 280px);
+  }
 }
