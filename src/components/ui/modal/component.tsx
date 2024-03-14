@@ -1,49 +1,52 @@
-import { ReactNode, useCallback, useEffect, useRef } from 'react';
-import { CloseIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 import styles from './styles.module.css';
-import { createPortal } from 'react-dom';
+import ReactDOM from 'react-dom';
+import { useEffect } from 'react';
+import { CloseIcon } from '@ya.praktikum/react-developer-burger-ui-components';
+import { useScreenSize } from '../../../device-context/hook';
+import { ModalOverlay } from '../modal-overlay/component';
+import classNames from 'classnames';
 
 interface ModalProps {
+  children: JSX.Element;
   onClose: () => void;
-  children: ReactNode;
 }
 
-export const Modal = ({ children, onClose }: ModalProps) => {
-  const modalRef = useRef(null);
-
-  const onClickOnOverlay = useCallback(
-    (evt) => {
-      if (evt.target !== modalRef.current) {
-        evt.stopPropagation();
-        onClose();
-      }
-    },
-    [onClose]
-  );
+export const Modal = ({
+  children,
+  onClose,
+}: ModalProps) => {
+  const { isMobile } = useScreenSize();
+  const modalRoot = document.getElementById('react-modal');
 
   useEffect(() => {
     const onEsc = (evt: KeyboardEvent) => {
       if (evt.key === 'Escape') {
-        evt.stopPropagation();
         onClose();
       }
     };
     document.addEventListener('keydown', onEsc);
-
-    return () => {
-      document.removeEventListener('keydown', onEsc);
-    };
+    return () => document.removeEventListener('keydown', onEsc);
   }, [onClose]);
 
-  return createPortal(
-    <div className={styles.overlay} onClick={(evt) => onClickOnOverlay(evt)}>
-      <div className={styles.modal} ref={modalRef}>
+  if (!modalRoot) {
+    return null;
+  }
+
+  return ReactDOM.createPortal(
+    <>
+      <div
+        className={classNames(
+          isMobile ? 'pl-2 pr-2 pt-4' : 'pl-10 pr-10 pt-10',
+          styles.modal
+        )}
+      >
         <button className={styles.button}>
           <CloseIcon onClick={onClose} type='primary' />
         </button>
         {children}
       </div>
-    </div>,
-    document.getElementById('modal')!
+      <ModalOverlay closePopup={onClose} />
+    </>,
+    modalRoot
   );
 };

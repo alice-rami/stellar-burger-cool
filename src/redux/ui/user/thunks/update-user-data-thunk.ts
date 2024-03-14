@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { fetchWithRefresh, request } from '../../../../utils/api';
+import { fetchUserDataWithRefresh, request } from '../../../../utils/api';
 import { userActions } from '..';
 
 export interface UserData {
@@ -39,13 +39,15 @@ export const updateUserDataThunk = createAsyncThunk(
       localStorage.getItem('accessToken') &&
       localStorage.getItem('accessToken')?.startsWith('Bearer')
     ) {
-      return fetchWithRefresh(updateUserData, { name, email, password }).then(
-        (res) => {
-          if (res) {
-            dispatch(userActions.setUser(res.user));
-          }
+      return fetchUserDataWithRefresh(updateUserData, {
+        name,
+        email,
+        password,
+      }).then((res) => {
+        if (res) {
+          dispatch(userActions.setUser(res.user));
         }
-      );
+      });
     } else {
       dispatch(userActions.setUser(null));
     }

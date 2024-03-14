@@ -1,16 +1,15 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { IngredientDetails } from './component';
 import { useGetIngredientsQuery } from '../../redux/services/ingredientApi';
-import { ConstructorPage } from '../../pages/constructor-page/component';
-import { useAppDispatch, useAppSelector } from '../../hooks/rtkHooks';
-import { selectModalModule } from '../../redux/ui/modal/selectors';
-import { modalActions } from '../../redux/ui/modal';
 import { Modal } from '../ui/modal/component';
+import { ConstructorPageContainer } from '../../pages/constructor-page/container';
 
 export const IngredientDetailsContainer = () => {
   const { id } = useParams();
-  const { isModalOpen } = useAppSelector(selectModalModule);
-  const dispatch = useAppDispatch();
+  const location = useLocation();
+  const isFromIngredients =
+    location.state && location.state.from === 'ingredients';
+
   const navigate = useNavigate();
   const { data: ingredient } = useGetIngredientsQuery(undefined, {
     selectFromResult: (result) => {
@@ -25,13 +24,12 @@ export const IngredientDetailsContainer = () => {
     return null;
   }
 
-  return isModalOpen ? (
+  return isFromIngredients ? (
     <>
-      <ConstructorPage />
+      <ConstructorPageContainer />
       <Modal
         onClose={() => {
-          dispatch(modalActions.closeModal());
-          navigate('/');
+          navigate('/'), { state: null };
         }}
       >
         <IngredientDetails ingredient={ingredient} />

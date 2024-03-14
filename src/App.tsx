@@ -1,6 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './components/ui/layout/component';
-import { ConstructorPage } from './pages/constructor-page/component';
 import { FeedPage } from './pages/feed-page/component';
 import { DeviceProvider } from './device-context/component';
 import { IngredientDetailsContainer } from './components/ingredient-details/container';
@@ -19,6 +18,7 @@ import { checkUserAuthThunk } from './redux/ui/user/thunks/check-user-auth-thunk
 import { UserOrdersContainer } from './components/orders/orders/container-user';
 import { OrderDetailsAllContainer } from './components/orders/order-details/container-all';
 import { OrderDetailsUserContainer } from './components/orders/order-details/container-user';
+import { ConstructorPageContainer } from './pages/constructor-page/container';
 
 export const App = () => {
   const dispatch = useAppDispatch();
@@ -32,7 +32,7 @@ export const App = () => {
       <DeviceProvider>
         <Routes>
           <Route path='/' element={<Layout />}>
-            <Route path='/' element={<ConstructorPage />} />
+            <Route path='/' element={<ConstructorPageContainer />} />
             <Route path='feed' element={<FeedPage />} />
             <Route path='feed/:id' element={<OrderDetailsAllContainer />} />
             <Route

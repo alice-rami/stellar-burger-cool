@@ -1,9 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import { useAppDispatch } from '../../../hooks/rtkHooks';
 import OrderCard from './component';
 import { Order } from '../types';
 import { useOrderIngredientDetails } from '../../../hooks/useOrderIngredientDetails';
-import { modalActions } from '../../../redux/ui/modal';
 
 interface OrderCardContainerProps {
   order: Order;
@@ -14,7 +12,6 @@ export const OrderCardContainer = ({
   order,
   from,
 }: OrderCardContainerProps) => {
-  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const ingredientsData = useOrderIngredientDetails(order.ingredients);
@@ -27,8 +24,7 @@ export const OrderCardContainer = ({
   const { number } = order;
 
   const showOrderDetails = () => {
-    navigate(`${from}/${number}`);
-    dispatch(modalActions.showReceivedOrder());
+    navigate(`${from}/${number}`, { state: { from: from } });
   };
   return (
     <OrderCard

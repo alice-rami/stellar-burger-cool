@@ -1,5 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { submitOrderThunk } from './thunks/submit-order-thunk';
+import {
+  SubmittedOrderData,
+  submitOrderThunk,
+} from './thunks/submit-order-thunk';
+import { PayloadAction } from '@reduxjs/toolkit';
 
 export type RequestStatuses = 'ok' | 'loading' | 'error';
 
@@ -16,7 +20,12 @@ export const initialState: OrderState = {
 export const orderSlice = createSlice({
   name: 'order',
   initialState,
-  reducers: {},
+  reducers: {
+    setOrder(state, action: PayloadAction<SubmittedOrderData>) {
+      state.orderNumber = action.payload.number;
+      state.status = 'ok';
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(submitOrderThunk.pending, (state) => {
@@ -31,3 +40,5 @@ export const orderSlice = createSlice({
       });
   },
 });
+
+export const orderActions = orderSlice.actions;

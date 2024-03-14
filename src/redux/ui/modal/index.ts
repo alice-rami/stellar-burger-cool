@@ -1,16 +1,13 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { loginThunk } from '../user/thunks/login-thunk';
 import { submitOrderThunk } from '../order/thunks/submit-order-thunk';
 
 type ModalContent =
-  | 'ingredient'
   | 'burger'
-  | 'order'
+  | 'order-confirmation' // after an order is created
   | 'mobile-menu'
   | 'loader'
   | 'success'
-  | 'error'
-  | 'order-received';
+  | 'error';
 
 interface ModalState {
   isModalOpen: boolean;
@@ -28,20 +25,12 @@ export const modalSlice = createSlice({
   name: 'modal',
   initialState,
   reducers: {
-    showIngredient(state) {
-      state.modalContent = 'ingredient';
-      state.isModalOpen = true;
-    },
     showBurger(state) {
       state.modalContent = 'burger';
       state.isModalOpen = true;
     },
-    showOrder(state) {
-      state.modalContent = 'order';
-      state.isModalOpen = true;
-    },
-    showReceivedOrder(state) {
-      state.modalContent = 'order-received';
+    showOrderConfirmation(state) {
+      state.modalContent = 'order-confirmation';
       state.isModalOpen = true;
     },
     showMobileMenu(state) {
@@ -71,25 +60,12 @@ export const modalSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(submitOrderThunk.fulfilled, (state) => {
-        state.modalContent = 'order';
+        state.modalContent = 'order-confirmation';
         state.isModalOpen = true;
       })
       .addCase(submitOrderThunk.pending, (state) => {
         state.modalContent = 'loader';
         state.isModalOpen = true;
-      })
-      .addCase(submitOrderThunk.rejected, (state) => {
-        state.message = 'Не удалось создать заказ. Попробуйте еще раз';
-      })
-      // .addCase(fetchIngredientsThunk.rejected, (state) => {
-      //   state.message =
-      //     'Не удалось получить ингредиенты с сервера. Попробуйте перезагрузить страницу';
-      // })
-      .addCase(loginThunk.rejected, (state, action) => {
-        if (action.error.message === 'email or password are incorrect') {
-          state.message =
-            'Логин или пароль не найдены. Проверьте правильность введенных данных или воспользуйтесь ссылками ниже';
-        }
       });
   },
 });

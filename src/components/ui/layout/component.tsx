@@ -9,7 +9,6 @@ export const Layout = () => {
       <main className={styles.content}>
         <Outlet />
       </main>
-      <div id='modal' />
     </div>
   );
 };

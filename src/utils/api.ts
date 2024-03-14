@@ -26,7 +26,7 @@ export type PayloadCreator = (
   userData: UserData
 ) => Promise<ResponseWithUserData>;
 
-const updateToken = (): Promise<ResponseWithUpdatedToken> => {
+export const updateToken = (): Promise<ResponseWithUpdatedToken> => {
   return request('auth/token', {
     headers: {
       'Content-Type': 'application/json',
@@ -38,7 +38,7 @@ const updateToken = (): Promise<ResponseWithUpdatedToken> => {
   });
 };
 
-export const fetchWithRefresh = (
+export const fetchUserDataWithRefresh = (
   payloadCreator: PayloadCreator,
   params: UserData = {}
 ) => {

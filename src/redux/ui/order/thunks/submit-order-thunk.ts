@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { OrderStatus } from '../../../../components/orders/types';
-import { request } from '../../../../utils/api';
+import { request, updateToken } from '../../../../utils/api';
 
 export interface OrderOwnerData {
   name: string;
@@ -21,17 +21,20 @@ export interface SubmittedOrderData {
   price: number;
 }
 
-interface SubmitOrderResponse {
+export interface SubmitOrderResponse {
   success: boolean;
   name: string;
   order: SubmittedOrderData;
 }
 
-const submitOrder = (orderIdsArr: string[]): Promise<SubmitOrderResponse> => {
+const submitOrder = (
+  accessToken: string = localStorage.getItem('accessToken'),
+  orderIdsArr: string[]
+): Promise<SubmitOrderResponse> => {
   return request('orders', {
     headers: {
       'Content-Type': 'application/json',
-      authorization: localStorage.getItem('accessToken') as string,
+      authorization: accessToken,
     },
     method: 'POST',
     body: JSON.stringify({
@@ -40,4 +43,44 @@ const submitOrder = (orderIdsArr: string[]): Promise<SubmitOrderResponse> => {
   });
 };
 
-export const submitOrderThunk = createAsyncThunk('order/submit', submitOrder);
+const fetchSubmitOrderWithRefresh = (
+  payloadCreator: typeof submitOrder,
+  params: string[] = []
+) => {
+  return payloadCreator(localStorage.getItem('accessToken') as string, params)
+    .then((res: SubmitOrderResponse) => {
+      if (res.success) {
+        return res;
+      } else {
+        return Promise.reject('Ошибка данных с сервера');
+      }
+    })
+    .catch((err: Error) => {
+      if (err.message === 'jwt expired') {
+        updateToken().then((res) => {
+          if (!res.success) {
+            localStorage.removeItem('accessToken');
+            localStorage.removeItem('refreshToken');
+            return Promise.reject(res);
+          }
+          localStorage.setItem('accessToken', res.accessToken);
+          localStorage.setItem('refreshToken', res.refreshToken);
+          return payloadCreator(res.accessToken, params);
+        });
+      } else {
+        return Promise.reject(err);
+      }
+    });
+};
+
+export const submitOrderThunk = createAsyncThunk(
+  'order/submit',
+  (orderIdsArr: string[]) => {
+    if (
+      localStorage.getItem('accessToken') &&
+      localStorage.getItem('accessToken')?.startsWith('Bearer')
+    ) {
+      return fetchSubmitOrderWithRefresh(submitOrder, orderIdsArr);
+    }
+  }
+);

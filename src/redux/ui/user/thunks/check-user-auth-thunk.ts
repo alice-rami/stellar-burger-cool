@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ResponseWithUserData } from './update-user-data-thunk';
-import { fetchWithRefresh, request } from '../../../../utils/api';
+import { fetchUserDataWithRefresh, request } from '../../../../utils/api';
 import { userActions } from '..';
 
 const getUser = (accessToken: string): Promise<ResponseWithUserData> => {
@@ -19,7 +19,7 @@ export const checkUserAuthThunk = createAsyncThunk(
       localStorage.getItem('accessToken') &&
       localStorage.getItem('accessToken')?.startsWith('Bearer')
     ) {
-      return fetchWithRefresh(getUser).then((res) => {
+      return fetchUserDataWithRefresh(getUser).then((res) => {
         if (res) {
           dispatch(userActions.setUser(res.user));
         }
