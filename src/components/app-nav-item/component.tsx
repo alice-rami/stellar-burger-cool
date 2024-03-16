@@ -1,8 +1,9 @@
 import { ReactNode } from 'react';
 import { inactive, textDefault, textS } from '../../utils/constants-kit-styles';
-import * as classNames from 'classnames';
+
 import styles from './styles.module.css';
 import { NavLink } from 'react-router-dom';
+import classNames from 'classnames';
 
 export interface AppNavItemProps {
   path: string;

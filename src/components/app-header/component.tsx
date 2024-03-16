@@ -1,6 +1,5 @@
 import { AppNav } from '../app-nav/component';
 import styles from './styles.module.css';
-import * as classNames from 'classnames';
 import { AppHeaderLogo } from '../app-header-logo/component';
 import { MenuIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 import { useScreenSize } from '../../device-context/hook';
@@ -12,6 +11,7 @@ import {
 } from '../../redux/ui/modal/selectors';
 import { AppNavMobile } from '../app-nav-mobile/component';
 import { Modal } from '../ui/modal/component';
+import classNames from 'classnames';
 
 interface AppHeaderProps {
   className?: string;

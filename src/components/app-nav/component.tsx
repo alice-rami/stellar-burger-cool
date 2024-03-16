@@ -1,8 +1,8 @@
-import * as classNames from 'classnames';
 import styles from './styles.module.css';
 import { appNavConfig } from './config';
 import { AppNavItem } from '../app-nav-item/component';
 import { useScreenSize } from '../../device-context/hook';
+import classNames from 'classnames';
 
 interface AppNavProps {
   className?: string;
