@@ -19,6 +19,7 @@ import { UserOrdersContainer } from './components/orders/orders/container-user';
 import { OrderDetailsAllContainer } from './components/orders/order-details/container-all';
 import { OrderDetailsUserContainer } from './components/orders/order-details/container-user';
 import { ConstructorPageContainer } from './pages/constructor-page/container';
+import ErrorBoundary from './error-boundary/error-boundary';
 
 export const App = () => {
   const dispatch = useAppDispatch();
@@ -30,56 +31,62 @@ export const App = () => {
   return (
     <DndProvider backend={HTML5Backend}>
       <DeviceProvider>
-        <Routes>
-          <Route path='/' element={<Layout />}>
-            <Route path='/' element={<ConstructorPageContainer />} />
-            <Route path='feed' element={<FeedPage />} />
-            <Route path='feed/:id' element={<OrderDetailsAllContainer />} />
-            <Route
-              path='ingredients/:id'
-              element={<IngredientDetailsContainer />}
-            />
-            <Route
-              path='/profile'
-              element={<OnlyAuth component={<LayoutProfile />} />}
-            >
+        <ErrorBoundary>
+          <Routes>
+            <Route path='/' element={<Layout />}>
+              <Route path='/' element={<ConstructorPageContainer />} />
+              <Route path='feed' element={<FeedPage />} />
+              <Route path='feed/:id' element={<OrderDetailsAllContainer />} />
+              <Route
+                path='ingredients/:id'
+                element={<IngredientDetailsContainer />}
+              />
               <Route
                 path='/profile'
-                element={<OnlyAuth component={<ProfilePageContainer />} />}
-              />
-              <Route
-                path='/profile/orders'
-                element={<OnlyAuth component={<UserOrdersContainer />} />}
-              />
-              <Route
-                path='/profile/orders/:id'
-                element={<OnlyAuth component={<OrderDetailsUserContainer />} />}
-              />
-            </Route>
+                element={<OnlyAuth component={<LayoutProfile />} />}
+              >
+                <Route
+                  path='/profile'
+                  element={<OnlyAuth component={<ProfilePageContainer />} />}
+                />
+                <Route
+                  path='/profile/orders'
+                  element={<OnlyAuth component={<UserOrdersContainer />} />}
+                />
+                <Route
+                  path='/profile/orders/:id'
+                  element={
+                    <OnlyAuth component={<OrderDetailsUserContainer />} />
+                  }
+                />
+              </Route>
 
-            <Route
-              path='login'
-              element={<OnlyUnAuth component={<LoginPageContainer />} />}
-            />
-            <Route
-              path='register'
-              element={<OnlyUnAuth component={<RegistrationPageContainer />} />}
-            />
-            <Route
-              path='forgot-password'
-              element={
-                <OnlyUnAuth component={<ForgotPasswordPageContainer />} />
-              }
-            />
-            <Route
-              path='reset-password'
-              element={
-                <OnlyUnAuth component={<ResetPasswordPageContainer />} />
-              }
-            />
-            <Route path='*' element={<div>Not found</div>} />
-          </Route>
-        </Routes>
+              <Route
+                path='login'
+                element={<OnlyUnAuth component={<LoginPageContainer />} />}
+              />
+              <Route
+                path='register'
+                element={
+                  <OnlyUnAuth component={<RegistrationPageContainer />} />
+                }
+              />
+              <Route
+                path='forgot-password'
+                element={
+                  <OnlyUnAuth component={<ForgotPasswordPageContainer />} />
+                }
+              />
+              <Route
+                path='reset-password'
+                element={
+                  <OnlyUnAuth component={<ResetPasswordPageContainer />} />
+                }
+              />
+              <Route path='*' element={<div>Not found</div>} />
+            </Route>
+          </Routes>
+        </ErrorBoundary>
       </DeviceProvider>
     </DndProvider>
   );
