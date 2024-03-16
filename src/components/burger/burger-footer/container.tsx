@@ -12,6 +12,7 @@ import {
   selectOrderTotal,
 } from '../../../redux/ui/burger/selectors';
 import { useScreenSize } from '../../../device-context/hook';
+import { BASE } from '../../../utils/constants-urls';
 
 type NavigateConfig = (
   to: string,
@@ -32,10 +33,10 @@ export const BurgerFooterContainer = () => {
     evt.preventDefault();
     if (!isAuthorized) {
       if (isModalOpen) {
-        navigate('/login', { state: { from: '/', modal: true } });
+        navigate(`${BASE}login`, { state: { from: BASE, modal: true } });
         dispatch(modalActions.closeModal());
       } else {
-        navigate('/login', { state: { from: '/' } });
+        navigate(`${BASE}login`, { state: { from: BASE } });
       }
     } else {
       dispatch(submitOrderThunk(idsArray))

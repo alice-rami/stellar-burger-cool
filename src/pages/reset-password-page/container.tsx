@@ -8,6 +8,7 @@ import { resetPasswordThunk } from '../../redux/ui/user/thunks/reset-password-th
 import { modalActions } from '../../redux/ui/modal';
 import { getInputsConfig } from '../../utils/inputs-config';
 import { ResetPasswordPage } from './component';
+import { BASE } from '../../utils/constants-urls';
 
 type RequiredInputsData = Pick<InputsData, 'newPassword' | 'newCode'>;
 
@@ -36,7 +37,7 @@ export const ResetPasswordPageContainer = () => {
         .unwrap()
         .then((res) => {
           if (res.success) {
-            navigate('/login', {
+            navigate(`${BASE}login`, {
               replace: true,
             });
             dispatch(
@@ -70,6 +71,6 @@ export const ResetPasswordPageContainer = () => {
       message={message}
     />
   ) : (
-    <Navigate to={'/'} />
+    <Navigate to={BASE} />
   );
 };

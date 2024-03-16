@@ -8,6 +8,7 @@ import classNames from 'classnames';
 import { textL } from '../../utils/constants-kit-styles';
 import { AuthForm } from '../../components/auth-form/component';
 import { AuthLink } from '../../components/auth-link/component';
+import { BASE } from '../../utils/constants-urls';
 
 interface ResetPasswordPageProps {
   passwordConfig: InputConfig;
@@ -44,7 +45,7 @@ export const ResetPasswordPage = ({
           required
         />
       </AuthForm>
-      <AuthLink path={'/login'} description='Вспомнили пароль?'>
+      <AuthLink path={`${BASE}login`} description='Вспомнили пароль?'>
         Войти
       </AuthLink>
     </div>

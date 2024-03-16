@@ -5,6 +5,7 @@ import { AuthLink } from '../../components/auth-link/component';
 import { AuthForm } from '../../components/auth-form/component';
 import classNames from 'classnames';
 import { textL } from '../../utils/constants-kit-styles';
+import { BASE } from '../../utils/constants-urls';
 
 interface ForgotPasswordPageProps {
   emailConfig: InputConfig;
@@ -30,7 +31,7 @@ export const ForgotPasswordPage = ({
       >
         <EmailInput {...emailConfig} placeholder='Укажите e-mail' required />
       </AuthForm>
-      <AuthLink path={'/login'} description='Уже зарегистрированы?'>
+      <AuthLink path={`${BASE}login`} description='Уже зарегистрированы?'>
         Войти
       </AuthLink>
     </div>

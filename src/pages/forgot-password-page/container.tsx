@@ -8,6 +8,7 @@ import { ForgotPasswordPage } from './component';
 import { requestPasswordThunk } from '../../redux/ui/user/thunks/request-password-thunk';
 import { getInputsConfig } from '../../utils/inputs-config';
 import { modalActions } from '../../redux/ui/modal';
+import { BASE } from '../../utils/constants-urls';
 
 type RequiredInputsData = Pick<InputsData, 'newEmail'>;
 type NavigateConfig = (
@@ -38,7 +39,7 @@ export const ForgotPasswordPageContainer = () => {
         .unwrap()
         .then((res) => {
           if (res.success) {
-            navigate('/reset-password', {
+            navigate(`${BASE}reset-password`, {
               state: { from: 'forgot-password' },
             });
             dispatch(

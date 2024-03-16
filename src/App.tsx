@@ -20,6 +20,7 @@ import { OrderDetailsAllContainer } from './components/orders/order-details/cont
 import { OrderDetailsUserContainer } from './components/orders/order-details/container-user';
 import { ConstructorPageContainer } from './pages/constructor-page/container';
 import ErrorBoundary from './error-boundary/error-boundary';
+import { BASE } from './utils/constants-urls';
 
 export const App = () => {
   const dispatch = useAppDispatch();
@@ -33,8 +34,8 @@ export const App = () => {
       <DeviceProvider>
         <ErrorBoundary>
           <Routes>
-            <Route path='/' element={<Layout />}>
-              <Route path='/' element={<ConstructorPageContainer />} />
+            <Route path={`${BASE}`} element={<Layout />}>
+              <Route path={`${BASE}`} element={<ConstructorPageContainer />} />
               <Route path='feed' element={<FeedPage />} />
               <Route path='feed/:id' element={<OrderDetailsAllContainer />} />
               <Route
@@ -42,19 +43,19 @@ export const App = () => {
                 element={<IngredientDetailsContainer />}
               />
               <Route
-                path='/profile'
+                path={`${BASE}profile`}
                 element={<OnlyAuth component={<LayoutProfile />} />}
               >
                 <Route
-                  path='/profile'
+                  path={`${BASE}profile`}
                   element={<OnlyAuth component={<ProfilePageContainer />} />}
                 />
                 <Route
-                  path='/profile/orders'
+                  path={`${BASE}profile/orders`}
                   element={<OnlyAuth component={<UserOrdersContainer />} />}
                 />
                 <Route
-                  path='/profile/orders/:id'
+                  path={`${BASE}profile/orders/:id`}
                   element={
                     <OnlyAuth component={<OrderDetailsUserContainer />} />
                   }

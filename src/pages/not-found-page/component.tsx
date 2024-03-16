@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from './styles.module.css';
 import classNames from 'classnames';
 import { accent, textDefault, textM } from '../../utils/constants-kit-styles';
+import { BASE } from '../../utils/constants-urls';
 
 export const NotFoundPage = () => {
   return (
@@ -12,7 +13,10 @@ export const NotFoundPage = () => {
         <BurgerIcon type='secondary' />
         <BurgerIcon type='primary' />
         <BurgerIcon type='success' />
-        <Link to='/' className={classNames(styles.link, textDefault, accent)}>
+        <Link
+          to={BASE}
+          className={classNames(styles.link, textDefault, accent)}
+        >
           {`--> На главную`}
         </Link>
       </div>

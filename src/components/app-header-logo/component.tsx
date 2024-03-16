@@ -5,6 +5,7 @@ import styles from './styles.module.css';
 import { useScreenSize } from '../../device-context/hook';
 import { useNavigate } from 'react-router-dom';
 import classNames from 'classnames';
+import { BASE } from '../../utils/constants-urls';
 
 interface AppHeaderLogoProps {
   className?: string;
@@ -16,7 +17,7 @@ export const AppHeaderLogo = ({ className }: AppHeaderLogoProps) => {
   return (
     <div
       className={classNames(className, styles.logo)}
-      onClick={() => navigate('/')}
+      onClick={() => navigate(BASE)}
     >
       {isDesktop && <Logo />}
       {!isDesktop && (

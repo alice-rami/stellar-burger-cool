@@ -8,6 +8,7 @@ import { loginThunk } from '../../redux/ui/user/thunks/login-thunk';
 import { modalActions } from '../../redux/ui/modal';
 import { getInputsConfig } from '../../utils/inputs-config';
 import { LoginPage } from './component';
+import { BASE } from '../../utils/constants-urls';
 
 type RequiredInputsData = Pick<InputsData, 'newEmail' | 'newPassword'>;
 
@@ -40,7 +41,7 @@ export const LoginPageContainer = () => {
         .then(() => {
           const fromValue: null | string =
             location.state && location.state.from;
-          fromValue ? navigate(fromValue) : navigate('/');
+          fromValue ? navigate(fromValue) : navigate(BASE);
         })
         .then(() => {
           const isFromModal: null | boolean =

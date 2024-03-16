@@ -8,6 +8,7 @@ import { registerThunk } from '../../redux/ui/user/thunks/register-thunk';
 import { modalActions } from '../../redux/ui/modal';
 import { getInputsConfig } from '../../utils/inputs-config';
 import { RegistrationPage } from './component';
+import { BASE } from '../../utils/constants-urls';
 
 type RequiredInputsData = Omit<InputsData, 'newCode'>;
 
@@ -43,11 +44,11 @@ export const RegistrationPageContainer = () => {
       )
         .unwrap()
         .then(() => {
-          navigate('/', { replace: true });
+          navigate(BASE, { replace: true });
         })
         .catch((error) => {
           if (error.message === 'User already exists') {
-            navigate('/login');
+            navigate(`${BASE}login`);
             dispatch(
               modalActions.showError(
                 'Пользователь с таким адресом уже зарегистрирован. Выполните вход'

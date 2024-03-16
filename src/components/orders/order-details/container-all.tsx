@@ -4,12 +4,13 @@ import { Modal } from '../../ui/modal/component';
 import { FeedPage } from '../../../pages/feed-page/component';
 import { OrderDetails } from './component';
 import { useOrderIngredientDetails } from '../../../hooks/useOrderIngredientDetails';
+import { BASE } from '../../../utils/constants-urls';
 
 export const OrderDetailsAllContainer = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
-  const isFromFeed = location.state && location.state.from === '/feed';
+  const isFromFeed = location.state && location.state.from === `${BASE}feed`;
   const { data: order } = useGetOrdersQuery(undefined, {
     selectFromResult: (result) => {
       return {
@@ -38,7 +39,7 @@ export const OrderDetailsAllContainer = () => {
       <FeedPage />
       <Modal
         onClose={() => {
-          navigate('/feed'), { state: null };
+          navigate(`${BASE}feed`), { state: null };
         }}
       >
         <OrderDetails

@@ -3,6 +3,7 @@ import { IngredientDetails } from './component';
 import { useGetIngredientsQuery } from '../../redux/services/ingredientApi';
 import { Modal } from '../ui/modal/component';
 import { ConstructorPageContainer } from '../../pages/constructor-page/container';
+import { BASE } from '../../utils/constants-urls';
 
 export const IngredientDetailsContainer = () => {
   const { id } = useParams();
@@ -29,7 +30,7 @@ export const IngredientDetailsContainer = () => {
       <ConstructorPageContainer />
       <Modal
         onClose={() => {
-          navigate('/'), { state: null };
+          navigate(BASE), { state: null };
         }}
       >
         <IngredientDetails ingredient={ingredient} />

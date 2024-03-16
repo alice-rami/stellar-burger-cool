@@ -17,6 +17,7 @@ import { useDrag } from 'react-dnd';
 import { useAppDispatch, useAppSelector } from '../../hooks/rtkHooks';
 import { burgerActions } from '../../redux/ui/burger';
 import { selectIngredientCount } from '../../redux/ui/burger/selectors';
+import { BASE } from '../../utils/constants-urls';
 
 interface IngredientProps {
   ingredient: IngredientEntity;
@@ -70,7 +71,7 @@ export const Ingredient = ({ ingredient }: IngredientProps) => {
         alt={name}
         className={styles.image}
         onClick={() => {
-          navigate(`/ingredients/${_id}`, {
+          navigate(`${BASE}ingredients/${_id}`, {
             state: { from: 'ingredients' },
           });
         }}

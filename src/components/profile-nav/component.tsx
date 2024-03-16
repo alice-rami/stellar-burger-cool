@@ -1,5 +1,6 @@
 import { useAppDispatch } from '../../hooks/rtkHooks';
 import { logoutThunk } from '../../redux/ui/user/thunks/logout-thunk';
+import { BASE } from '../../utils/constants-urls';
 import { AppNavItem } from '../app-nav-item/component';
 import { config } from './config';
 import styles from './styles.module.css';
@@ -17,7 +18,7 @@ export const ProfileNav = ({ onClick }: ProfileNavProps) => {
     dispatch(logoutThunk())
       .unwrap()
       .then(() => {
-        navigate('/');
+        navigate(BASE);
       })
       .catch((e) => {
         console.log(e);

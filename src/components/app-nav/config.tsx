@@ -4,6 +4,7 @@ import {
   ProfileIcon,
 } from '@ya.praktikum/react-developer-burger-ui-components';
 import { ReactNode } from 'react';
+import { BASE } from '../../utils/constants-urls';
 
 export type NavItem = {
   path: string;
@@ -13,17 +14,17 @@ export type NavItem = {
 
 export const appNavConfig: NavItem[] = [
   {
-    path: '/',
+    path: BASE,
     icon: <BurgerIcon type='primary' />,
     text: 'Конструктор',
   },
   {
-    path: '/feed',
+    path: `${BASE}feed`,
     icon: <ListIcon type='primary' />,
     text: 'Лента заказов',
   },
   {
-    path: '/profile',
+    path: `${BASE}profile`,
     icon: <ProfileIcon type='primary' />,
     text: 'Личный кабинет',
   },

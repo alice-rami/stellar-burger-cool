@@ -2,6 +2,7 @@ import { Navigate, useLocation } from 'react-router-dom';
 import { useAppSelector } from '../../hooks/rtkHooks';
 import { selectUserModule } from '../../redux/ui/user/selectors';
 import { ReactNode } from 'react';
+import { BASE } from '../../utils/constants-urls';
 
 interface ProtectedProps {
   onlyUnAuth?: boolean;
@@ -17,12 +18,12 @@ const Protected = ({ onlyUnAuth = false, component }: ProtectedProps) => {
   }
 
   if (onlyUnAuth && user) {
-    const { from } = location.state || { from: { pathname: '/' } };
+    const { from } = location.state || { from: { pathname: BASE } };
     return <Navigate to={from} />;
   }
 
   if (!onlyUnAuth && !user) {
-    return <Navigate to='/login' state={{ from: location }} />;
+    return <Navigate to={`${BASE}login`} state={{ from: location }} />;
   }
 
   return component;

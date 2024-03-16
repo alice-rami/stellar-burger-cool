@@ -8,6 +8,7 @@ import classNames from 'classnames';
 import { textL } from '../../utils/constants-kit-styles';
 import { AuthForm } from '../../components/auth-form/component';
 import { AuthLink } from '../../components/auth-link/component';
+import { BASE } from '../../utils/constants-urls';
 
 interface LoginPageProps {
   emailConfig: InputConfig;
@@ -36,10 +37,10 @@ export const LoginPage = ({
         <EmailInput {...emailConfig} placeholder='E-mail' required />
         <PasswordInput {...passwordConfig} placeholder='Пароль' required />
       </AuthForm>
-      <AuthLink path={'/register'} description='Вы — новый пользователь?'>
+      <AuthLink path={`${BASE}register`} description='Вы — новый пользователь?'>
         Зарегистрироваться
       </AuthLink>
-      <AuthLink path={'/forgot-password'} description='Забыли пароль?'>
+      <AuthLink path={`${BASE}forgot-password`} description='Забыли пароль?'>
         Восстановить пароль
       </AuthLink>
     </div>
