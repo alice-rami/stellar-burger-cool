@@ -12,7 +12,6 @@ import {
   selectModalModule,
 } from '../../redux/ui/modal/selectors';
 import { Modal } from '../ui/modal/component';
-import { BurgerDetails } from '../burger/burger-details/component';
 import { BurgerIngredients } from '../burger/burger-ingredients/component';
 
 interface AppFooterProps {

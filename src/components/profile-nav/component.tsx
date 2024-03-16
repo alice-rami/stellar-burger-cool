@@ -19,7 +19,9 @@ export const ProfileNav = ({ onClick }: ProfileNavProps) => {
       .then(() => {
         navigate('/');
       })
-      .catch(console.error);
+      .catch((e) => {
+        console.log(e);
+      });
   };
 
   return (
