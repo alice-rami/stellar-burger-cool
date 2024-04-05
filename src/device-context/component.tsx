@@ -8,8 +8,8 @@ interface DeviceProviderProps {
 }
 
 export const DeviceProvider = ({ children }: DeviceProviderProps) => {
-  const isDesktop = useMediaQuery({ query: '(min-width: 1200px)' });
-  const isMobile = useMediaQuery({ query: '(max-width: 640px)' });
+  const isDesktop = useMediaQuery({ query: '(min-width: 1240px)' });
+  const isMobile = useMediaQuery({ query: '(max-width: 680px)' });
   const [screenSize, setScreenSize] = useState<ScreenSizes>({
     isDesktop: false,
     isMobile: false,

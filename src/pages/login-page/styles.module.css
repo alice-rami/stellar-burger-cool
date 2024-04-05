@@ -1,30 +1,9 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    width: 480px;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-}
-
-.form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.linkContainer {
-    display: flex;
-    column-gap: 8px;
-    align-items: center;
-}
-
-.link {
-    text-decoration: none;
-    color: #4C4CFF;
-}
-
-.errorContainer {
-    min-height: 72px;
+  display: flex;
+  flex-direction: column;
+  width: 480px;
+  justify-content: center;
+  align-content: center;
+  height: 100%;
+  text-align: center;
 }

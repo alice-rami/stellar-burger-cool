@@ -1,3 +1,12 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 480px;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
 .inputContainer {
   display: flex;
   flex-direction: column;
@@ -11,8 +20,11 @@
   column-gap: 8px;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 680px) {
   .inputContainer {
     justify-content: center;
+  }
+  .container {
+    justify-content: flex-start;
   }
 }

@@ -3,6 +3,7 @@
   text-align: center;
   justify-content: center;
   position: relative;
+  margin: 0 auto;
 }
 
 .priceContainer {

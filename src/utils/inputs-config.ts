@@ -13,8 +13,7 @@ export interface InputConfig {
 export const getInputsConfig = (
   fieldsArr: Input[],
   newValues: Partial<InputsData>,
-  handleInputChange: (evt: React.ChangeEvent<HTMLInputElement>) => void,
-  isMobile: boolean
+  handleInputChange: (evt: React.ChangeEvent<HTMLInputElement>) => void
 ): InputConfig[] => {
   const errorTextbyType = {
     newEmail: 'Введите корректный адрес электронной почты',
@@ -26,10 +25,10 @@ export const getInputsConfig = (
     value: newValues[field]?.value || '',
     name: field,
     onChange: handleInputChange,
-    extraClass: 'mb-6',
+    extraClass: 'mb-6 mr-2',
     error: newValues[field]?.error || false,
     errorText: errorTextbyType[field],
-    size: isMobile ? 'small' : 'default',
+    size: 'default',
   }));
 };
 

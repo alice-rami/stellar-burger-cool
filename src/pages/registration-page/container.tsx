@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom';
-import { useScreenSize } from '../../device-context/hook';
 import { useAppDispatch } from '../../hooks/rtkHooks';
 import useFormInputValidation, {
   InputsData,
@@ -13,7 +12,6 @@ import { BASE } from '../../utils/constants-urls';
 type RequiredInputsData = Omit<InputsData, 'newCode'>;
 
 export const RegistrationPageContainer = () => {
-  const { isMobile } = useScreenSize();
   const initialState: RequiredInputsData = {
     newName: { value: '', error: false, required: true },
     newEmail: { value: '', error: false, required: true },
@@ -65,8 +63,7 @@ export const RegistrationPageContainer = () => {
   const [emailConfig, passwordConfig, nameConfig] = getInputsConfig(
     ['newEmail', 'newPassword', 'newName'],
     newValues,
-    handleInputChange,
-    isMobile
+    handleInputChange
   );
 
   return (

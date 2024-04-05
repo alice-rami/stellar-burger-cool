@@ -12,13 +12,13 @@
   align-items: center;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1239px) {
   .container {
     background-color: #1c1c21;
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 680px) {
   .container {
     justify-content: center;
   }

@@ -24,7 +24,7 @@
   flex-grow: 2;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1239px) {
   .container {
     gap: 1px;
     max-width: calc(100% - 16px);

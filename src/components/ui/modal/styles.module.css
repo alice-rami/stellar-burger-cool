@@ -38,7 +38,7 @@
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 680px) {
   .modal {
     width: 100%;
     justify-content: center;

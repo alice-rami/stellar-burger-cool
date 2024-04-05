@@ -23,25 +23,27 @@ export const AppHeader = ({ className }: AppHeaderProps) => {
   const { isMobileMenu } = useAppSelector(selectModalContent);
   const dispatch = useAppDispatch();
   return (
-    <div className={classNames(styles.container, className)}>
-      {isMobile ? (
-        <>
-          <div className={styles.menu}>
-            <MenuIcon
-              type='primary'
-              onClick={() => dispatch(modalActions.showMobileMenu())}
-            />
-          </div>
-          {isModalOpen && isMobileMenu && (
-            <Modal onClose={() => dispatch(modalActions.closeModal())}>
-              <AppNavMobile />
-            </Modal>
-          )}
-        </>
-      ) : (
-        <AppNav className={styles.nav} />
-      )}
-      <AppHeaderLogo className={styles.logo} />
+    <div className={classNames(styles.outerContainer, className)}>
+      <div className={styles.container}>
+        {isMobile ? (
+          <>
+            <div className={styles.menu}>
+              <MenuIcon
+                type='primary'
+                onClick={() => dispatch(modalActions.showMobileMenu())}
+              />
+            </div>
+            {isModalOpen && isMobileMenu && (
+              <Modal onClose={() => dispatch(modalActions.closeModal())}>
+                <AppNavMobile />
+              </Modal>
+            )}
+          </>
+        ) : (
+          <AppNav className={styles.nav} />
+        )}
+        <AppHeaderLogo className={styles.logo} />
+      </div>
     </div>
   );
 };

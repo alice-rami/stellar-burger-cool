@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom';
-import { useScreenSize } from '../../device-context/hook';
 import useFormInputValidation, {
   InputsData,
 } from '../../hooks/useFormInputValidation';
@@ -17,7 +16,6 @@ type NavigateConfig = (
 ) => void;
 
 export const ForgotPasswordPageContainer = () => {
-  const { isMobile } = useScreenSize();
   const initialState: RequiredInputsData = {
     newEmail: { value: '', error: false, required: true },
   };
@@ -59,8 +57,7 @@ export const ForgotPasswordPageContainer = () => {
   const [emailConfig] = getInputsConfig(
     ['newEmail'],
     newValues,
-    handleInputChange,
-    isMobile
+    handleInputChange
   );
   return (
     <ForgotPasswordPage

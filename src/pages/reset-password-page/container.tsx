@@ -1,5 +1,4 @@
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
-import { useScreenSize } from '../../device-context/hook';
 import { useAppDispatch } from '../../hooks/rtkHooks';
 import useFormInputValidation, {
   InputsData,
@@ -13,7 +12,6 @@ import { BASE } from '../../utils/constants-urls';
 type RequiredInputsData = Pick<InputsData, 'newPassword' | 'newCode'>;
 
 export const ResetPasswordPageContainer = () => {
-  const { isMobile } = useScreenSize();
   const initialState: RequiredInputsData = {
     newPassword: { value: '', error: false, required: true },
     newCode: { value: '', error: false, required: true },
@@ -58,8 +56,7 @@ export const ResetPasswordPageContainer = () => {
   const [passwordConfig, codeConfig] = getInputsConfig(
     ['newPassword', 'newCode'],
     newValues,
-    handleInputChange,
-    isMobile
+    handleInputChange
   );
 
   return from === 'forgot-password' ? (

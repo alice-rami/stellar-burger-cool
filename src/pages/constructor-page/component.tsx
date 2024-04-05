@@ -12,12 +12,10 @@ export const ConstructorPage = ({ orderTotal }: ConstructorPageProps) => {
   const { isDesktop } = useScreenSize();
 
   return (
-    <>
-      <LayoutTwoColumns title='Cоберите бургер'>
-        <IngredientsContainer />
-        {isDesktop && <BurgerIngredients />}
-        {!isDesktop && <AppFooter orderTotal={orderTotal} />}
-      </LayoutTwoColumns>
-    </>
+    <LayoutTwoColumns title='Cоберите бургер'>
+      <IngredientsContainer />
+      {isDesktop && <BurgerIngredients />}
+      {!isDesktop && <AppFooter orderTotal={orderTotal} />}
+    </LayoutTwoColumns>
   );
 };

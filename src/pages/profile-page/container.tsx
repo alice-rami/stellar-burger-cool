@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useScreenSize } from '../../device-context/hook';
 import { useAppDispatch, useAppSelector } from '../../hooks/rtkHooks';
 import { selectUserModule } from '../../redux/ui/user/selectors';
 import useFormInputValidation, {
@@ -12,7 +11,6 @@ import { ProfilePage } from './component';
 type RequiredInputsData = Omit<InputsData, 'newCode'>;
 
 export const ProfilePageContainer = () => {
-  const { isMobile } = useScreenSize();
   const [requestStatus, setRequestStatus] = useState<
     'success' | 'error' | null
   >(null);
@@ -60,8 +58,7 @@ export const ProfilePageContainer = () => {
   const [emailConfig, passwordConfig, nameConfig] = getInputsConfig(
     ['newEmail', 'newPassword', 'newName'],
     newValues,
-    handleInputChange,
-    isMobile
+    handleInputChange
   );
 
   return (
