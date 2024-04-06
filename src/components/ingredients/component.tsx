@@ -1,28 +1,38 @@
 import { IngredientGroup } from '../ingredient-group/ingredient-group';
-import { groupNamesConfig } from './config';
 import { IngredientsByType } from './container';
-import { Tabs } from '../ui/tabs/component';
 import styles from './styles.module.css';
 import classNames from 'classnames';
+import { useGroupRefs } from '../../hooks/useGroupRefs';
+import { Ref, TabsMobile } from '../ui/tabs-mobile/component';
+import { MutableRefObject } from 'react';
+import { tabsData } from '../ui/tabs-mobile/config';
 
 interface IngredientsProps {
   ingredientsByType: IngredientsByType;
 }
 
 export const Ingredients = ({ ingredientsByType }: IngredientsProps) => {
+  const { visibleGroup, groupRefs, setSectionRefs } = useGroupRefs();
   if (!ingredientsByType) {
     return null;
   }
 
   return (
     <div className={classNames(styles.container)}>
-      <Tabs className='mb-10' />
+      <TabsMobile
+        className='mb-10'
+        visibleGroup={visibleGroup}
+        refs={groupRefs as MutableRefObject<Ref>}
+        tabsData={tabsData}
+      />
       <div className={classNames(styles.groups, 'custom-scroll')}>
-        {groupNamesConfig.map(({ type, title, id }) => (
+        {tabsData.map(({ value, title, type }, index) => (
           <IngredientGroup
-            key={id}
+            key={index}
+            id={value}
             title={title}
             ingredients={ingredientsByType[type]}
+            ref={setSectionRefs}
           />
         ))}
       </div>

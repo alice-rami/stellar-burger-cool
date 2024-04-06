@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  width: 100%;
+  list-style: none;
+  margin-top: 0;
+  padding: 0;
+}
+
+.tab {
+  cursor: pointer;
+  background-color: #131316;
+  text-align: center;
+  width: 33%;
+  box-shadow: inset 0px -1px 0px #2f2f37;
+  color: #8585ad;
+  transition: all 0.3s ease-in;
+}
+
+.tab:hover {
+  color: white;
+}
+
+.active {
+  box-shadow: inset 0px -2px 0px #4c4cff;
+  pointer-events: none;
+  color: white;
+}
