@@ -5,7 +5,19 @@
   scrollbar-width: thin;
   padding: 0;
   margin: 0;
-  height: calc(100vh - 200px);
+  height: calc(100vh - 88px - 88px);
   width: 100%;
   row-gap: 16px;
+}
+
+@media screen and (max-width: 1239px) {
+  .container {
+    height: calc(100vh - 88px - 56px);
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .container {
+    height: calc(100vh - 64px - 52px);
+  }
 }

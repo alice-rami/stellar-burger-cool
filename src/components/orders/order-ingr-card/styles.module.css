@@ -21,3 +21,9 @@
 .ingredientPrice {
   white-space: nowrap;
 }
+
+@media screen and (max-width: 680px) {
+  .ingredient {
+    margin-right: 4px;
+  }
+}

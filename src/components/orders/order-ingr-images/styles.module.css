@@ -65,3 +65,24 @@
   text-align: center;
   opacity: 1;
 }
+
+@media screen and (max-width: 680px) {
+  .ingrImageContainer {
+    width: 32px;
+    height: 32px;
+  }
+
+  .ingrImage {
+    width: 28px;
+    height: 28px;
+  }
+
+  .sixth {
+    width: 28px;
+    height: 28px;
+  }
+
+  .extraValue {
+    width: 28px;
+  }
+}

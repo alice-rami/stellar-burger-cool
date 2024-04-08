@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useRef, useState } from 'react';
-import { TabId } from '../components/ui/tabs-mobile/config';
-import { Ref } from '../components/ui/tabs-mobile/component';
+import { TabId } from '../components/ingredients1/tabs-ingredients/config';
+import { Ref } from '../components/ingredients1/tabs-ingredients/component';
 
 export function useGroupRefs() {
   const [visibleGroup, setVisibleGroup] = useState<TabId>('one');

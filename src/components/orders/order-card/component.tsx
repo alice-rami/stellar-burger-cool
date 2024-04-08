@@ -54,7 +54,9 @@ export const OrderCard = ({
           firstIngredientsData={firstIngredients}
           extra={extra}
         />
-        <span className={classNames('mr-10', styles.priceContainer)}>
+        <span
+          className={classNames(isMobile ? '' : 'mr-10', styles.priceContainer)}
+        >
           <p className={classNames('mr-2', isMobile ? digitsDefault : digitsM)}>
             {orderTotal ? orderTotal : 0}
           </p>

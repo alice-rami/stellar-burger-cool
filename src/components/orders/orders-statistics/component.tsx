@@ -3,9 +3,11 @@ import styles from './styles.module.css';
 import {
   digitsDefault,
   digitsL,
+  digitsM,
   success,
   textM,
 } from '../../../utils/constants-kit-styles';
+import { useScreenSize } from '../../../device-context/hook';
 
 interface OrderStatisticsProps {
   doneOrders: number[];
@@ -20,8 +22,15 @@ export const OrdersStatistics = ({
   total,
   totalToday,
 }: OrderStatisticsProps) => {
+  const { isMobile, isDesktop } = useScreenSize();
   return (
-    <div className={styles.container}>
+    <div
+      className={classNames(
+        styles.container,
+        isMobile ? 'ml-2' : '',
+        !isDesktop ? 'mt-5' : ''
+      )}
+    >
       <section className={styles.statusContainer}>
         <div>
           <h2 className={classNames(textM, 'mb-6')}>Готовы:</h2>
@@ -48,12 +57,16 @@ export const OrdersStatistics = ({
         </div>
       </section>
       <section>
-        <h2 className={textM}>Выполнено за всё время:</h2>
-        <p className={digitsL}>{total}</p>
+        <h2 className={classNames(textM, isMobile ? 'mb-2' : '')}>
+          Выполнено за всё время:
+        </h2>
+        <p className={isMobile ? digitsM : digitsL}>{total}</p>
       </section>
       <section>
-        <h2 className={textM}>Выполнено за сегодня:</h2>
-        <p className={digitsL}>{totalToday}</p>
+        <h2 className={classNames(textM, isMobile ? 'mb-2' : '')}>
+          Выполнено за сегодня:
+        </h2>
+        <p className={isMobile ? digitsM : digitsL}>{totalToday}</p>
       </section>
     </div>
   );

@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  width: 100%;
+  list-style: none;
+  margin-top: 0;
+  padding: 0;
+}
+
+.tabContainer {
+  display: block;
+  width: 100%;
+}

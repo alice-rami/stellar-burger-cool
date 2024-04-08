@@ -1,16 +1,14 @@
 .container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 1fr minmax(104px, 150px) minmax(104px, 150px);
+  height: calc(100vh - 88px - 88px);
   row-gap: 39px;
-  height: calc(100vh - 200px);
 }
 
 .statusContainer {
   display: flex;
   column-gap: 36px;
   width: 100%;
-  box-sizing: border-box;
-  max-height: 200px;
 }
 
 .doneContainer {
@@ -23,4 +21,28 @@
   columns: 3 auto;
   row-gap: 8px;
   column-gap: 16px;
+}
+
+@media screen and (max-width: 1239px) {
+  .container {
+    row-gap: 24px;
+    height: calc(100vh - 88px - 86px);
+  }
+  .doneContainer {
+    columns: 3 auto;
+  }
+
+  .pendingContainer {
+    columns: 2 auto;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .container {
+    height: calc(100vh - 64px - 72px);
+    row-gap: 24px;
+  }
+  .doneContainer {
+    columns: 2 auto;
+  }
 }

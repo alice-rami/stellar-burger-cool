@@ -18,3 +18,15 @@
   object-fit: cover;
   background-color: black;
 }
+
+@media screen and (max-width: 680px) {
+  .ingrImageContainer {
+    width: 32px;
+    height: 32px;
+  }
+
+  .ingrImage {
+    width: 28px;
+    height: 28px;
+  }
+}

@@ -7,10 +7,11 @@
 }
 
 .tab {
+  display: block;
   cursor: pointer;
   background-color: #131316;
   text-align: center;
-  width: 33%;
+  width: 100%;
   box-shadow: inset 0px -1px 0px #2f2f37;
   color: #8585ad;
   transition: all 0.3s ease-in;

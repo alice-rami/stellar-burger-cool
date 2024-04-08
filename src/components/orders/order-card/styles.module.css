@@ -37,13 +37,11 @@
 .numAndDate {
   display: flex;
   justify-content: space-between;
-  column-gap: 24px;
 }
 
 .ingrAndPrice {
   display: flex;
   justify-content: space-between;
-  column-gap: 24px;
 }
 
 .name {

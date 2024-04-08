@@ -1,6 +1,6 @@
 import { AppFooter } from '../../components/app-footer/component';
 import { BurgerIngredients } from '../../components/burger/burger-ingredients/component';
-import { IngredientsContainer } from '../../components/ingredients/container';
+import { IngredientsContainer } from '../../components/ingredients1/ingredients/container';
 import { LayoutTwoColumns } from '../../components/ui/layout-two-columns/component';
 import { useScreenSize } from '../../device-context/hook';
 

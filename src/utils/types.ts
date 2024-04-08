@@ -1,4 +1,4 @@
-import { IngredientsTypes } from '../components/ingredients/container';
+import { IngredientsTypes } from '../components/ingredients1/ingredients/container';
 
 export type Ingredient = {
   _id: string;

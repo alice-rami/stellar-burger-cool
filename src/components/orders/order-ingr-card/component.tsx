@@ -4,9 +4,11 @@ import { OrderIngredientImage } from '../order-ingr-image/component';
 import {
   digitsDefault,
   textDefault,
+  textS,
 } from '../../../utils/constants-kit-styles';
 import classNames from 'classnames';
 import { OrderIngredientDetails } from '../types';
+import { useScreenSize } from '../../../device-context/hook';
 
 interface OrderIngredientCardProps {
   ingredient: OrderIngredientDetails;
@@ -15,6 +17,8 @@ interface OrderIngredientCardProps {
 export const OrderIngredientCard = ({
   ingredient,
 }: OrderIngredientCardProps) => {
+  const { isMobile } = useScreenSize();
+
   if (!ingredient.ingredientId) {
     return null;
   }
@@ -27,7 +31,7 @@ export const OrderIngredientCard = ({
           ingredientImage={ingredientImage || ''}
           ingredientName={ingredientName || ''}
         />
-        <p className={textDefault}>{ingredientName || ''}</p>
+        <p className={isMobile ? textS : textDefault}>{ingredientName || ''}</p>
       </div>
       <div className={styles.countAndPrice}>
         <p className={classNames(styles.ingredientPrice, digitsDefault)}>

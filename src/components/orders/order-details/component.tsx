@@ -32,7 +32,7 @@ export const OrderDetails = ({
       <div className={classNames(digitsDefault, 'mb-10', styles.centered)}>
         #{number}
       </div>
-      <h2 className={classNames(textM, 'mb-3', styles.title)}>{name}</h2>
+      <h2 className={classNames(textM, 'mb-3')}>{name}</h2>
       <p
         className={classNames(
           textDefault,
