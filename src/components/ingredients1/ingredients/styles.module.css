@@ -1,5 +1,5 @@
 .container {
-  height: calc(100vh - 200px);
+  height: calc(100vh - 88px - 88px);
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -15,6 +15,13 @@
 
 @media screen and (max-width: 1239px) {
   .container {
+    height: calc(100vh - 88px - 88px - 80px);
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .container {
     height: calc(100vh - 280px);
+    height: calc(100vh - 64px - 88px - 80px);
   }
 }

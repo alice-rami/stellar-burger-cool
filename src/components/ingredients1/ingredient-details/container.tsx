@@ -1,9 +1,9 @@
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { IngredientDetails } from './component';
-import { useGetIngredientsQuery } from '../../redux/services/ingredientApi';
-import { Modal } from '../ui/modal/component';
-import { ConstructorPageContainer } from '../../pages/constructor-page/container';
-import { BASE } from '../../utils/constants-urls';
+import { useGetIngredientsQuery } from '../../../redux/services/ingredientApi';
+import { Modal } from '../../ui/modal/component';
+import { ConstructorPageContainer } from '../../../pages/constructor-page/container';
+import { BASE } from '../../../utils/constants-urls';
 
 export const IngredientDetailsContainer = () => {
   const { id } = useParams();

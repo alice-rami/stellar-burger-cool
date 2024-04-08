@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { Ingredient } from '../../utils/types';
+import { Ingredient } from '../../../utils/types';
 import styles from './styles.module.css';
 import { nutritionFactsConfig } from './config';
 import {
@@ -8,7 +8,8 @@ import {
   textDefault,
   textL,
   textM,
-} from '../../utils/constants-kit-styles';
+} from '../../../utils/constants-kit-styles';
+import { useScreenSize } from '../../../device-context/hook';
 
 interface IngredientDetailsProps {
   ingredient: Ingredient;
@@ -19,17 +20,18 @@ export const IngredientDetails = ({
   ingredient,
   className,
 }: IngredientDetailsProps) => {
+  const { isMobile } = useScreenSize();
   if (!ingredient) {
     return null;
   }
 
-  const { image_large, name } = ingredient;
+  const { image_large, image_mobile, name } = ingredient;
 
   return (
     <div className={classNames(className, styles.container)}>
       <h2 className={classNames(textL)}>Детали ингредиента</h2>
       <img
-        src={image_large}
+        src={isMobile ? image_mobile : image_large}
         alt={name}
         className={classNames(styles.image, 'mb-4')}
       />

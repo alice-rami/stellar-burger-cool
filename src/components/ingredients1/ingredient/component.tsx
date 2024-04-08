@@ -3,21 +3,21 @@ import {
   Counter,
   CurrencyIcon,
 } from '@ya.praktikum/react-developer-burger-ui-components';
-import { Ingredient as IngredientEntity } from '../../utils/types';
+import { Ingredient as IngredientEntity } from '../../../utils/types';
 import styles from './styles.module.css';
-import { useScreenSize } from '../../device-context/hook';
+import { useScreenSize } from '../../../device-context/hook';
 import {
   digitsDefault,
   textDefault,
   textS,
-} from '../../utils/constants-kit-styles';
+} from '../../../utils/constants-kit-styles';
 import classNames from 'classnames';
 import { useNavigate } from 'react-router-dom';
 import { useDrag } from 'react-dnd';
-import { useAppDispatch, useAppSelector } from '../../hooks/rtkHooks';
-import { burgerActions } from '../../redux/ui/burger';
-import { selectIngredientCount } from '../../redux/ui/burger/selectors';
-import { BASE } from '../../utils/constants-urls';
+import { useAppDispatch, useAppSelector } from '../../../hooks/rtkHooks';
+import { burgerActions } from '../../../redux/ui/burger';
+import { selectIngredientCount } from '../../../redux/ui/burger/selectors';
+import { BASE } from '../../../utils/constants-urls';
 
 interface IngredientProps {
   ingredient: IngredientEntity;

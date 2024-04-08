@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Layout } from './components/ui/layout/component';
 import { FeedPage } from './pages/feed-page/component';
 import { DeviceProvider } from './device-context/component';
-import { IngredientDetailsContainer } from './components/ingredient-details/container';
+import { IngredientDetailsContainer } from './components/ingredients1/ingredient-details/container';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { ProfilePageContainer } from './pages/profile-page/container';
